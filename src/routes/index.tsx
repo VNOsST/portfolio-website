@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router"
 import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
-import { ExperienceSection } from "@/components/experience"
-import { ProjectsSection } from "@/components/projects"
+import { WorkSections } from "@/components/work-sections"
 import { SkillsSection } from "@/components/skills"
 import { EducationSection } from "@/components/education"
 import { Footer } from "@/components/footer"
@@ -17,8 +16,7 @@ function HomePage() {
       <Navbar />
       <main>
         <Hero />
-        <ExperienceSection />
-        <ProjectsSection />
+        <WorkSections />
         <SkillsSection />
         <EducationSection />
       </main>

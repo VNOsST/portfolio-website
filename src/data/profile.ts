@@ -12,4 +12,5 @@ export const profile: Profile = {
   github: "https://github.com/VNOsST",
   summary:
     "Software Engineer with experience building web, mobile, and cloud-native applications using TypeScript, React/Next.js, Node.js, and Python. Experienced in designing, deploying, and operating scalable systems across AWS and Azure, with a strong background in CI/CD, containerization, system reliability, and performance optimization. Proven impact improving deployment speed, reducing downtime, and strengthening system security in production environments.",
+  avatar: "5x5 - 2025.jpg",
 }

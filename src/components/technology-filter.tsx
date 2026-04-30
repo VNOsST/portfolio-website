@@ -108,17 +108,17 @@ export function TechnologyFilter({
             return (
               <span
                 key={id}
-                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-1 text-xs font-medium"
+                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 text-sm font-medium"
               >
-                <Icon className="h-3.5 w-3.5" />
+                <Icon className="h-4 w-4" />
                 {tech.name}
                 <button
                   type="button"
                   onClick={() => removeFilter(id)}
-                  className="ml-0.5 inline-flex items-center justify-center rounded-full p-0.5 hover:bg-muted"
+                  className="ml-0.5 inline-flex items-center justify-center rounded-full p-1 hover:bg-muted"
                   aria-label={`Remove ${tech.name} filter`}
                 >
-                  <IconX className="h-3 w-3" />
+                  <IconX className="h-3.5 w-3.5" />
                 </button>
               </span>
             )

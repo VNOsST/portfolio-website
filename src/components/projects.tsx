@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react"
+import { useMemo } from "react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
@@ -12,26 +12,22 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import { TechnologyBadge } from "@/components/technology-badge"
-import { TechnologyFilter } from "@/components/technology-filter"
+import { BadgeScrollRow } from "@/components/badge-scroll-row"
 import { projects } from "@/data/projects"
-import { getTechnology, matchesAnyTechnologyFilter } from "@/data/technologies"
+import { matchesAnyTechnologyFilter } from "@/data/technologies"
 import { buildImageUrl } from "@/lib/r2"
 import { IconCalendar, IconExternalLink } from "@tabler/icons-react"
 import type { TechnologyId } from "@/types"
 
-export function ProjectsSection() {
-  const [activeFilters, setActiveFilters] = useState<Array<TechnologyId>>([])
+interface ProjectsSectionProps {
+  activeFilters: Array<TechnologyId>
+  toggleFilter: (id: TechnologyId) => void
+}
 
-  const allTechIds = useMemo(() => {
-    const set = new Set<TechnologyId>()
-    for (const project of projects) {
-      for (const techId of project.technologies) {
-        set.add(techId)
-      }
-    }
-    return Array.from(set)
-  }, [])
-
+export function ProjectsSection({
+  activeFilters,
+  toggleFilter,
+}: ProjectsSectionProps) {
   const filteredProjects = useMemo(() => {
     if (activeFilters.length === 0) return projects
     return projects.filter((project) =>
@@ -39,42 +35,12 @@ export function ProjectsSection() {
     )
   }, [activeFilters])
 
-  function toggleFilter(id: TechnologyId) {
-    setActiveFilters((prev) =>
-      prev.includes(id) ? prev.filter((v) => v !== id) : [...prev, id]
-    )
-  }
-
-  const filterLabel = activeFilters
-    .map((id) => getTechnology(id).name)
-    .join(", ")
-
   return (
     <section id="projects" className="scroll-mt-16 py-12 sm:py-16">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-8">
           Projects
         </h2>
-
-        <div className="mb-6 space-y-2">
-          <div className="flex items-center gap-3">
-            <span className="text-sm text-muted-foreground">Filter:</span>
-            <TechnologyFilter
-              value={activeFilters}
-              onChange={setActiveFilters}
-              options={allTechIds}
-            />
-          </div>
-          {activeFilters.length > 0 && (
-            <p className="text-xs text-muted-foreground">
-              Showing results for{" "}
-              <span className="font-medium text-foreground">{filterLabel}</span>{" "}
-              {filteredProjects.length > 0
-                ? `(${filteredProjects.length} item${filteredProjects.length === 1 ? "" : "s"})`
-                : "(no matches)"}
-            </p>
-          )}
-        </div>
 
         <div className="grid gap-6 sm:grid-cols-2">
           {filteredProjects.map((project) => (
@@ -154,24 +120,24 @@ export function ProjectsSection() {
                   </div>
                 )}
                 <Separator className="mt-auto mb-3" />
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((techId) => (
-                    <TechnologyBadge
-                      key={techId}
-                      id={techId}
-                      active={activeFilters.includes(techId)}
-                      onClick={() => toggleFilter(techId)}
-                    />
-                  ))}
-                  {project.tags.map((tag) => (
-                    <Badge
-                      key={tag}
-                      variant="outline"
-                      className="text-xs font-normal"
-                    >
-                      {tag}
-                    </Badge>
-                  ))}
+                <div className="space-y-2">
+                  <BadgeScrollRow>
+                    {project.technologies.map((techId) => (
+                      <TechnologyBadge
+                        key={techId}
+                        id={techId}
+                        active={activeFilters.includes(techId)}
+                        onClick={() => toggleFilter(techId)}
+                      />
+                    ))}
+                  </BadgeScrollRow>
+                  <BadgeScrollRow>
+                    {project.tags.map((tag) => (
+                      <Badge key={tag} variant="outline" className="text-xs font-normal shrink-0">
+                        {tag}
+                      </Badge>
+                    ))}
+                  </BadgeScrollRow>
                 </div>
               </CardContent>
             </Card>

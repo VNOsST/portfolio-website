@@ -20,7 +20,6 @@ import {
   IconContainer,
   IconDatabase,
   IconIdBadge,
-  IconLambda,
   IconPackage,
   IconSettingsAutomation,
   IconShieldLock,
@@ -36,6 +35,8 @@ import {
   AzureDevOpsIcon,
   WebSocketIcon,
   GitHubActionsIcon,
+  LambdaIcon,
+  APIGatewayIcon,
 } from "@/components/technology-icons"
 import type { Technology, TechnologyId } from "@/types"
 
@@ -44,13 +45,13 @@ export const technologies: Record<TechnologyId, Technology> = {
   lambda: {
     id: "lambda",
     name: "AWS Lambda",
-    icon: IconLambda,
+    icon: LambdaIcon,
     parentId: "aws",
   },
   "api-gateway": {
     id: "api-gateway",
     name: "API Gateway",
-    icon: IconApi,
+    icon: APIGatewayIcon,
     parentId: "aws",
   },
   dynamodb: {

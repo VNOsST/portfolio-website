@@ -24,7 +24,7 @@ export function TechnologyBadge({
       onClick={onClick}
       className={cn(
         "inline-flex items-center gap-1 rounded-full border transition-colors",
-        size === "sm" ? "px-2 py-0.5 text-xs" : "px-2.5 py-1 text-sm",
+        size === "sm" ? "px-2.5 py-1 text-sm" : "px-3 py-1.5 text-base",
         active
           ? "border-primary bg-primary text-primary-foreground"
           : "border-border bg-background text-foreground hover:bg-muted",
@@ -32,8 +32,8 @@ export function TechnologyBadge({
       )}
       title={tech.name}
     >
-      <Icon className={cn("shrink-0", size === "sm" ? "h-3 w-3" : "h-4 w-4")} />
-      <span className="font-medium">{tech.name}</span>
+      <Icon className={cn("shrink-0", size === "sm" ? "h-4 w-4" : "h-5 w-5")} />
+      <span className="font-medium whitespace-nowrap">{tech.name}</span>
     </button>
   )
 }

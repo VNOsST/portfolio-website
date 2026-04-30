@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { NameToggle } from "@/components/name-toggle"
 import { profile } from "@/data/profile"
+import { buildImageUrl } from "@/lib/r2"
 import {
   IconMapPin,
   IconMail,
@@ -16,6 +17,11 @@ export function Hero() {
         <div className="flex flex-col gap-6">
           <div className="flex items-center gap-4">
             <Avatar className="h-16 w-16 border border-border">
+              <AvatarImage
+                src={buildImageUrl(profile.avatar!)}
+                alt={profile.name}
+                className="object-cover"
+              />
               <AvatarFallback className="text-lg font-semibold bg-primary text-primary-foreground">
                 {profile.initials}
               </AvatarFallback>

@@ -5,7 +5,6 @@ import { ModeToggle } from "@/components/mode-toggle"
 import { IconMenu } from "@tabler/icons-react"
 
 const navLinks = [
-  { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },

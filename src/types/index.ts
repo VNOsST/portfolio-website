@@ -11,6 +11,7 @@ export interface Profile {
   linkedin: string
   github: string
   summary: string
+  avatar?: string
 }
 
 export type TechnologyId =
