@@ -66,6 +66,28 @@ function RootDocument({ children }: { children: React.ReactNode }) {
     <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const storageKey = 'portfolio-theme';
+                let theme;
+                try {
+                  theme = localStorage.getItem(storageKey);
+                } catch (e) {}
+                let resolved = 'light';
+                if (theme === 'dark') {
+                  resolved = 'dark';
+                } else if (theme === 'system' || !theme) {
+                  resolved = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                }
+                const root = document.documentElement;
+                root.classList.remove('light', 'dark');
+                root.classList.add(resolved);
+              })();
+            `,
+          }}
+        />
       </head>
       <body className="antialiased">
         <ThemeProvider defaultTheme="system" storageKey="portfolio-theme">

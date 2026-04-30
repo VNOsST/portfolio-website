@@ -38,10 +38,10 @@ export function BadgeScrollRow({ children, className }: BadgeScrollRowProps) {
   }
 
   return (
-    <div className={cn("relative", className)}>
+    <div className={cn("relative w-full", className)}>
       <div
         ref={scrollRef}
-        className="flex gap-2 overflow-x-auto"
+        className="flex gap-2 overflow-x-auto w-full min-w-0"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {children}

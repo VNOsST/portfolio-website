@@ -20,7 +20,6 @@ export type TechnologyId =
   | "api-gateway"
   | "dynamodb"
   | "cognito"
-  | "sam"
   | "cloudformation"
   | "ecs"
   | "docker"
@@ -34,9 +33,10 @@ export type TechnologyId =
   | "container-apps"
   | "static-web-apps"
   | "azure-devops"
+  | "azure-cosmosdb"
+  | "azure-ai-search"
   | "redis"
   | "websockets"
-  | "ai-rag"
   | "entra-id"
   | "nodejs"
   | "python"
@@ -55,7 +55,7 @@ export interface Technology {
   id: TechnologyId
   name: string
   icon: React.ComponentType<{ className?: string }>
-  parentId?: TechnologyId
+  parentId?: Array<TechnologyId> | TechnologyId
 }
 
 export interface Experience {

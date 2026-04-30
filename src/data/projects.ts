@@ -15,12 +15,10 @@ export const projects: Array<Project> = [
       "Automated end-to-end deployments using GitHub Actions for both backend (SAM) and frontend (Docker → ECR → ECS), supporting parameterized multi-environment releases via SSM Parameter Store.",
     ],
     technologies: [
-      "aws",
       "lambda",
       "api-gateway",
       "dynamodb",
       "cognito",
-      "sam",
       "cloudformation",
       "ecs",
       "docker",

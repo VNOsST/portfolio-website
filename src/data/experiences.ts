@@ -37,13 +37,11 @@ export const experiences: Array<Experience> = [
       "Designed distributed system components using Redis Pub/Sub and WebSockets for real-time communication at scale.",
     ],
     technologies: [
-      "azure",
       "container-apps",
       "static-web-apps",
       "azure-devops",
       "redis",
       "websockets",
-      "ai-rag",
       "entra-id",
     ],
     tags: ["Capstone", "Cloud-Native", "Distributed Systems"],

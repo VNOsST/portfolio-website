@@ -9,7 +9,9 @@ export function NameToggle() {
   const [isVietnamese, setIsVietnamese] = useState(true)
   const [displayText, setDisplayText] = useState(profile.vietnameseName)
   const isAnimating = useRef(false)
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(
+    undefined
+  )
 
   useEffect(() => {
     return () => {

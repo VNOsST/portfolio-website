@@ -4,26 +4,13 @@ import { ProjectsSection } from "@/components/projects"
 import { TechnologyFilter } from "@/components/technology-filter"
 import { experiences } from "@/data/experiences"
 import { projects } from "@/data/projects"
-import { getTechnology, matchesAnyTechnologyFilter } from "@/data/technologies"
+import { getTechnology, getAllTechnologyIds, matchesAnyTechnologyFilter } from "@/data/technologies"
 import type { TechnologyId } from "@/types"
 
 export function WorkSections() {
   const [activeFilters, setActiveFilters] = useState<Array<TechnologyId>>([])
 
-  const allTechIds = useMemo(() => {
-    const set = new Set<TechnologyId>()
-    for (const exp of experiences) {
-      for (const techId of exp.technologies) {
-        set.add(techId)
-      }
-    }
-    for (const project of projects) {
-      for (const techId of project.technologies) {
-        set.add(techId)
-      }
-    }
-    return Array.from(set)
-  }, [])
+  const allTechIds = useMemo(() => getAllTechnologyIds(), [])
 
   function toggleFilter(id: TechnologyId) {
     setActiveFilters((prev) =>
@@ -65,7 +52,9 @@ export function WorkSections() {
             {activeFilters.length > 0 && (
               <p className="text-xs text-muted-foreground">
                 Showing results for{" "}
-                <span className="font-medium text-foreground">{filterLabel}</span>
+                <span className="font-medium text-foreground">
+                  {filterLabel}
+                </span>
                 {" · "}
                 {filteredExperiences.length} experience
                 {filteredExperiences.length === 1 ? "" : "s"}

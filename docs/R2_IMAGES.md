@@ -73,10 +73,10 @@ The `src` paths are **relative to your R2 bucket root**. They are combined with 
 
 ## Image Conventions
 
-| Field | Purpose | Recommended size | Aspect ratio |
-|---|---|---|---|
-| `thumbnail_image` | Hero image at the top of a card | 1200×675 | 16:9 |
-| `images[].src` | Gallery screenshots | 1200×675 | 16:9 |
+| Field             | Purpose                         | Recommended size | Aspect ratio |
+| ----------------- | ------------------------------- | ---------------- | ------------ |
+| `thumbnail_image` | Hero image at the top of a card | 1200×675         | 16:9         |
+| `images[].src`    | Gallery screenshots             | 1200×675         | 16:9         |
 
 ### Folder structure in R2
 
@@ -102,12 +102,12 @@ Your R2 bucket must allow public access for images to load in the browser. In th
 
 ## Troubleshooting
 
-| Issue | Solution |
-|---|---|
-| Images 404 | Check `VITE_R2_PUBLIC_URL` matches your bucket's public URL |
-| Images don't show | Verify the bucket allows public access |
-| CORS errors | Add a CORS policy to your R2 bucket allowing your site's origin |
-| Build fails | Make sure `src/lib/r2.ts` exists and `VITE_R2_PUBLIC_URL` is set for builds |
+| Issue             | Solution                                                                    |
+| ----------------- | --------------------------------------------------------------------------- |
+| Images 404        | Check `VITE_R2_PUBLIC_URL` matches your bucket's public URL                 |
+| Images don't show | Verify the bucket allows public access                                      |
+| CORS errors       | Add a CORS policy to your R2 bucket allowing your site's origin             |
+| Build fails       | Make sure `src/lib/r2.ts` exists and `VITE_R2_PUBLIC_URL` is set for builds |
 
 ## CORS Policy (if needed)
 
