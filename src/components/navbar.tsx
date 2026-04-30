@@ -1,17 +1,18 @@
 import { useState, useEffect } from "react"
+import { Link, useNavigate, useLocation } from "@tanstack/react-router"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { ModeToggle } from "@/components/mode-toggle"
 import { IconMenu } from "@tabler/icons-react"
 
-const navLinks = [
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
-  { label: "Education", href: "#education" },
+const sectionLinks = [
+  { label: "Skills", hash: "skills" },
+  { label: "Education", hash: "education" },
 ]
 
 export function Navbar() {
+  const navigate = useNavigate()
+  const location = useLocation()
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
 
@@ -23,15 +24,24 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  const scrollToHash = (hash: string) => {
+    const el = document.getElementById(hash)
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
   const handleClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
+    hash: string
   ) => {
     e.preventDefault()
     setMobileOpen(false)
-    const el = document.querySelector(href)
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" })
+    if (location.pathname === "/") {
+      scrollToHash(hash)
+    } else {
+      navigate({ to: "/", hash })
+      setTimeout(() => scrollToHash(hash), 100)
     }
   }
 
@@ -46,8 +56,8 @@ export function Navbar() {
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <nav className="flex h-14 items-center justify-between">
           <a
-            href="#about"
-            onClick={(e) => handleClick(e, "#about")}
+            href="/#about"
+            onClick={(e) => handleClick(e, "about")}
             className="text-sm font-semibold tracking-tight hover:opacity-80 transition-opacity"
           >
             TL
@@ -55,11 +65,17 @@ export function Navbar() {
 
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
+            <Link
+              to="/work"
+              className="px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-accent"
+            >
+              Work
+            </Link>
+            {sectionLinks.map((link) => (
               <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleClick(e, link.href)}
+                key={link.hash}
+                href={`/#${link.hash}`}
+                onClick={(e) => handleClick(e, link.hash)}
                 className="px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-accent"
               >
                 {link.label}
@@ -79,11 +95,18 @@ export function Navbar() {
               </SheetTrigger>
               <SheetContent side="top" className="w-full">
                 <div className="flex flex-col gap-2 mt-4">
-                  {navLinks.map((link) => (
+                  <Link
+                    to="/work"
+                    onClick={() => setMobileOpen(false)}
+                    className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition-colors"
+                  >
+                    Work
+                  </Link>
+                  {sectionLinks.map((link) => (
                     <a
-                      key={link.href}
-                      href={link.href}
-                      onClick={(e) => handleClick(e, link.href)}
+                      key={link.hash}
+                      href={`/#${link.hash}`}
+                      onClick={(e) => handleClick(e, link.hash)}
                       className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition-colors"
                     >
                       {link.label}

@@ -1,4 +1,5 @@
-import type React from "react"
+import type { TechnologyId } from "@/data/technologies"
+export type { TechnologyId }
 
 export interface Profile {
   name: string
@@ -12,50 +13,6 @@ export interface Profile {
   github: string
   summary: string
   avatar?: string
-}
-
-export type TechnologyId =
-  | "aws"
-  | "lambda"
-  | "api-gateway"
-  | "dynamodb"
-  | "cognito"
-  | "cloudformation"
-  | "ecs"
-  | "docker"
-  | "github-actions"
-  | "ssm"
-  | "nextjs"
-  | "react"
-  | "typescript"
-  | "flutter"
-  | "azure"
-  | "container-apps"
-  | "static-web-apps"
-  | "azure-devops"
-  | "azure-cosmosdb"
-  | "azure-ai-search"
-  | "redis"
-  | "websockets"
-  | "entra-id"
-  | "nodejs"
-  | "python"
-  | "postgresql"
-  | "mongodb"
-  | "tailwindcss"
-  | "fastapi"
-  | "java"
-  | "supabase"
-  | "jenkins"
-  | "ansible"
-  | "vitest"
-  | "cypress"
-
-export interface Technology {
-  id: TechnologyId
-  name: string
-  icon: React.ComponentType<{ className?: string }>
-  parentId?: Array<TechnologyId> | TechnologyId
 }
 
 export interface Experience {

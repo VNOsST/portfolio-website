@@ -1,3 +1,4 @@
+import type { ComponentType } from "react"
 import {
   IconBrandAws,
   IconBrandAzure,
@@ -14,9 +15,15 @@ import {
   IconBrandTypescript,
 } from "@tabler/icons-react"
 import * as TechnologyIcons from "@/components/technology-icons"
-import type { Technology, TechnologyId } from "@/types"
 
-export const technologies: Record<TechnologyId, Technology> = {
+export interface Technology {
+  id: string
+  name: string
+  icon: ComponentType<{ className?: string }>
+  parentId?: Array<string> | string
+}
+
+export const technologies = {
   aws: { id: "aws", name: "AWS", icon: IconBrandAws },
   lambda: {
     id: "lambda",
@@ -116,7 +123,11 @@ export const technologies: Record<TechnologyId, Technology> = {
     name: "WebSockets",
     icon: TechnologyIcons.WebSocketIcon,
   },
-  "entra-id": { id: "entra-id", name: "Entra ID", icon: TechnologyIcons.EntraIDIcon },
+  "entra-id": {
+    id: "entra-id",
+    name: "Entra ID",
+    icon: TechnologyIcons.EntraIDIcon,
+  },
   nodejs: { id: "nodejs", name: "Node.js", icon: IconBrandNodejs },
   python: { id: "python", name: "Python", icon: IconBrandPython },
   postgresql: {
@@ -154,7 +165,9 @@ export const technologies: Record<TechnologyId, Technology> = {
   },
   vitest: { id: "vitest", name: "Vitest", icon: TechnologyIcons.VitestIcon },
   cypress: { id: "cypress", name: "Cypress", icon: IconBrandCypress },
-}
+} satisfies Record<string, Technology>
+
+export type TechnologyId = keyof typeof technologies
 
 export function getTechnology(id: TechnologyId): Technology {
   return technologies[id]
@@ -162,10 +175,10 @@ export function getTechnology(id: TechnologyId): Technology {
 
 export function getDescendants(id: TechnologyId): Array<TechnologyId> {
   const result: Array<TechnologyId> = []
-  for (const tech of Object.values(technologies)) {
+  for (const tech of Object.values(technologies) as Array<Technology>) {
     if (tech.parentId === id) {
-      result.push(tech.id)
-      result.push(...getDescendants(tech.id))
+      result.push(tech.id as TechnologyId)
+      result.push(...getDescendants(tech.id as TechnologyId))
     }
   }
   return result
@@ -198,5 +211,7 @@ export function getAllTechnologyIds(): Array<TechnologyId> {
 }
 
 export function getRootTechnologies(): Array<Technology> {
-  return Object.values(technologies).filter((t) => !t.parentId)
+  return (Object.values(technologies) as Array<Technology>).filter(
+    (t) => !t.parentId
+  )
 }

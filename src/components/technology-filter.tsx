@@ -72,7 +72,6 @@ export function TechnologyFilter({
           <ComboboxContent>
             <ComboboxInput
               placeholder="Search technologies..."
-              className="w-full"
               showTrigger={false}
             />
             <ComboboxList>

@@ -4,10 +4,20 @@ import { ProjectsSection } from "@/components/projects"
 import { TechnologyFilter } from "@/components/technology-filter"
 import { experiences } from "@/data/experiences"
 import { projects } from "@/data/projects"
-import { getTechnology, getAllTechnologyIds, matchesAnyTechnologyFilter } from "@/data/technologies"
+import {
+  getTechnology,
+  getAllTechnologyIds,
+  matchesAnyTechnologyFilter,
+} from "@/data/technologies"
 import type { TechnologyId } from "@/types"
 
-export function WorkSections() {
+export function WorkSections({
+  showFilter = true,
+  limit,
+}: {
+  showFilter?: boolean
+  limit?: number
+}) {
   const [activeFilters, setActiveFilters] = useState<Array<TechnologyId>>([])
 
   const allTechIds = useMemo(() => getAllTechnologyIds(), [])
@@ -38,41 +48,45 @@ export function WorkSections() {
 
   return (
     <>
-      <section className="scroll-mt-16 pt-12 sm:pt-16 pb-4">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6">
-          <div className="space-y-2">
-            <div className="flex items-center gap-3 flex-wrap">
-              <span className="text-sm text-muted-foreground">Filter:</span>
-              <TechnologyFilter
-                value={activeFilters}
-                onChange={setActiveFilters}
-                options={allTechIds}
-              />
+      {showFilter && (
+        <section className="scroll-mt-16 pt-12 sm:pt-16 pb-4">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6">
+            <div className="space-y-2">
+              <div className="flex items-center gap-3 flex-wrap justify-end">
+                <span className="text-sm text-muted-foreground">Filter:</span>
+                <TechnologyFilter
+                  value={activeFilters}
+                  onChange={setActiveFilters}
+                  options={allTechIds}
+                />
+              </div>
+              {activeFilters.length > 0 && (
+                <p className="text-xs text-muted-foreground">
+                  Showing results for{" "}
+                  <span className="font-medium text-foreground">
+                    {filterLabel}
+                  </span>
+                  {" · "}
+                  {filteredExperiences.length} experience
+                  {filteredExperiences.length === 1 ? "" : "s"}
+                  {", "}
+                  {filteredProjects.length} project
+                  {filteredProjects.length === 1 ? "" : "s"}
+                </p>
+              )}
             </div>
-            {activeFilters.length > 0 && (
-              <p className="text-xs text-muted-foreground">
-                Showing results for{" "}
-                <span className="font-medium text-foreground">
-                  {filterLabel}
-                </span>
-                {" · "}
-                {filteredExperiences.length} experience
-                {filteredExperiences.length === 1 ? "" : "s"}
-                {", "}
-                {filteredProjects.length} project
-                {filteredProjects.length === 1 ? "" : "s"}
-              </p>
-            )}
           </div>
-        </div>
-      </section>
+        </section>
+      )}
       <ExperienceSection
         activeFilters={activeFilters}
         toggleFilter={toggleFilter}
+        limit={limit}
       />
       <ProjectsSection
         activeFilters={activeFilters}
         toggleFilter={toggleFilter}
+        limit={limit}
       />
     </>
   )

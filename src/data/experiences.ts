@@ -24,7 +24,7 @@ export const experiences: Array<Experience> = [
   },
   {
     id: "nashtech",
-    company: "Nashtech",
+    company: "NashTech",
     location: "Ho Chi Minh City, Vietnam",
     role: "Software Engineer",
     type: "Internship",
@@ -43,6 +43,14 @@ export const experiences: Array<Experience> = [
       "redis",
       "websockets",
       "entra-id",
+      "azure-cosmosdb",
+      "azure-ai-search",
+      "nextjs",
+      "react",
+      "typescript",
+      "python",
+      "fastapi",
+      "docker",
     ],
     tags: ["Capstone", "Cloud-Native", "Distributed Systems"],
     // Uncomment and update after uploading images to R2:
