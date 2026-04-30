@@ -1,6 +1,6 @@
 import type { Experience } from "@/types"
 
-export const experiences: Experience[] = [
+export const experiences: Array<Experience> = [
   {
     id: "tuturuuu",
     company: "Tuturuuu",

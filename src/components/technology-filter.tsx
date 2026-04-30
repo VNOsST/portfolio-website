@@ -14,9 +14,9 @@ import { IconChevronDown, IconX } from "@tabler/icons-react"
 import type { TechnologyId } from "@/types"
 
 interface TechnologyFilterProps {
-  value: TechnologyId[]
-  onChange: (value: TechnologyId[]) => void
-  options: TechnologyId[]
+  value: Array<TechnologyId>
+  onChange: (value: Array<TechnologyId>) => void
+  options: Array<TechnologyId>
   placeholder?: string
   className?: string
 }
@@ -51,10 +51,11 @@ export function TechnologyFilter({
     <div className={cn("space-y-2", className)}>
       <div className="flex items-center gap-2 flex-wrap">
         <ComboboxPrimitive.Root
-          value=""
+          value={null}
           onValueChange={(v: string | null) => {
             if (v) addFilter(v as TechnologyId)
           }}
+          items={sortedOptions}
         >
           <ComboboxPrimitive.Trigger
             render={
@@ -75,7 +76,7 @@ export function TechnologyFilter({
               showTrigger={false}
             />
             <ComboboxList>
-              {sortedOptions.map((id) => {
+              {(id: TechnologyId) => {
                 const tech = getTechnology(id)
                 const Icon = tech.icon
                 return (
@@ -84,11 +85,13 @@ export function TechnologyFilter({
                     {tech.name}
                   </ComboboxItem>
                 )
-              })}
-              {sortedOptions.length === 0 && (
-                <ComboboxEmpty>All technologies selected.</ComboboxEmpty>
-              )}
+              }}
             </ComboboxList>
+            <ComboboxEmpty>
+              {sortedOptions.length === 0
+                ? "All technologies selected."
+                : "No technologies found."}
+            </ComboboxEmpty>
           </ComboboxContent>
         </ComboboxPrimitive.Root>
         {value.length > 0 && (

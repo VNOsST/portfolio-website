@@ -81,8 +81,8 @@ export function getTechnology(id: TechnologyId): Technology {
   return technologies[id]
 }
 
-export function getDescendants(id: TechnologyId): TechnologyId[] {
-  const result: TechnologyId[] = []
+export function getDescendants(id: TechnologyId): Array<TechnologyId> {
+  const result: Array<TechnologyId> = []
   for (const tech of Object.values(technologies)) {
     if (tech.parentId === id) {
       result.push(tech.id)
@@ -97,7 +97,7 @@ export function getTechnologyFilterSet(id: TechnologyId): Set<TechnologyId> {
 }
 
 export function matchesTechnologyFilter(
-  itemTechIds: TechnologyId[],
+  itemTechIds: Array<TechnologyId>,
   filterId: TechnologyId
 ): boolean {
   const filterSet = getTechnologyFilterSet(filterId)
@@ -105,8 +105,8 @@ export function matchesTechnologyFilter(
 }
 
 export function matchesAnyTechnologyFilter(
-  itemTechIds: TechnologyId[],
-  filterIds: TechnologyId[]
+  itemTechIds: Array<TechnologyId>,
+  filterIds: Array<TechnologyId>
 ): boolean {
   if (filterIds.length === 0) return true
   return filterIds.some((filterId) =>
@@ -114,10 +114,10 @@ export function matchesAnyTechnologyFilter(
   )
 }
 
-export function getAllTechnologyIds(): TechnologyId[] {
-  return Object.keys(technologies) as TechnologyId[]
+export function getAllTechnologyIds(): Array<TechnologyId> { 
+  return Object.keys(technologies) as Array<TechnologyId>
 }
 
-export function getRootTechnologies(): Technology[] {
+export function getRootTechnologies(): Array<Technology> {
   return Object.values(technologies).filter((t) => !t.parentId)
 }
