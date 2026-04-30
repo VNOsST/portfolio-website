@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { NameToggle } from "@/components/name-toggle"
 import { profile } from "@/data/profile"
 import {
   IconMapPin,
@@ -20,9 +21,7 @@ export function Hero() {
               </AvatarFallback>
             </Avatar>
             <div>
-              <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">
-                {profile.name}
-              </h1>
+              <NameToggle />
               <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground mt-1">
                 <span className="inline-flex items-center gap-1">
                   <IconMapPin className="h-3.5 w-3.5" />

@@ -2,6 +2,8 @@ import type React from "react"
 
 export interface Profile {
   name: string
+  vietnameseName: string
+  englishName: string
   initials: string
   location: string
   phone: string

@@ -2,6 +2,8 @@ import type { Profile } from "@/types"
 
 export const profile: Profile = {
   name: "Ton That Huu Luan",
+  vietnameseName: "Tôn Thất Hữu Luân",
+  englishName: "Sam Ton",
   initials: "TL",
   location: "Ho Chi Minh City, Vietnam",
   phone: "0942506170",
