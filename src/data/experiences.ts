@@ -1,10 +1,12 @@
-import type { Experience } from "@/types"
-import { NashTechIcon } from "@/components/technology-icons"
+import type { Experience } from "@/types";
+import { NashTechIcon } from "@/components/technology-icons";
+import { TTRIcon } from "@/components/technology-icons/ttr";
 
 export const experiences: Array<Experience> = [
   {
     id: "tuturuuu",
     company: "Tuturuuu",
+    icon: TTRIcon,
     location: "Ho Chi Minh City, Vietnam",
     role: "Software Engineer",
     startDate: "Jul 2025",
@@ -61,4 +63,4 @@ export const experiences: Array<Experience> = [
     //   { src: "experiences/nashtech/screenshot-1.png", alt: "AI chatbot interface" },
     // ],
   },
-]
+];
