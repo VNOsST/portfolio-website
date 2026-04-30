@@ -58,9 +58,9 @@ export function Navbar() {
           <a
             href="/#about"
             onClick={(e) => handleClick(e, "about")}
-            className="text-sm font-semibold tracking-tight hover:opacity-80 transition-opacity"
+            className="hover:opacity-80 transition-opacity"
           >
-            TL
+            <img src="/favicon-32x32.png" alt="Home" className="h-6 w-6" />
           </a>
 
           {/* Desktop links */}

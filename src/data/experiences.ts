@@ -1,4 +1,5 @@
 import type { Experience } from "@/types"
+import { NashTechIcon } from "@/components/technology-icons"
 
 export const experiences: Array<Experience> = [
   {
@@ -17,7 +18,7 @@ export const experiences: Array<Experience> = [
     technologies: ["nextjs", "react", "typescript", "flutter", "supabase"],
     tags: ["CI/CD", "AI Tooling", "Security", "Rate Limiting"],
     // Uncomment and update after uploading images to R2:
-    // thumbnail_image: "experiences/tuturuuu/thumbnail.png",
+    // thumbnail_image: "experiences/tuturuuu/tuturuuu-thumbnail.png",
     // images: [
     //   { src: "experiences/tuturuuu/screenshot-1.png", alt: "Platform overview" },
     // ],
@@ -30,6 +31,7 @@ export const experiences: Array<Experience> = [
     type: "Internship",
     startDate: "May 2025",
     endDate: "Sep 2025",
+    icon: NashTechIcon,
     highlights: [
       "Led the design and development of a next-generation Agentic AI support platform over a 6-month capstone, implementing multi-agent RAG workflows, contextual embeddings, and structured outputs that improved response accuracy by 35% and reduced invalid escalations by 25%.",
       "Built core AI chatbot and human-support platform capabilities, including real-time WebSockets with Redis Pub-Sub capabilities, Entra ID authentication, and human escalation queues supporting seamless AI-to-human handoff and reducing average support resolution time by 30%.",

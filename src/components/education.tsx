@@ -14,14 +14,17 @@ export function EducationSection() {
             <Card key={idx}>
               <CardHeader className="pb-3">
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
-                  <div>
-                    <h3 className="text-lg font-semibold leading-tight">
-                      {edu.institution}
-                    </h3>
-                    <p className="text-sm text-muted-foreground mt-0.5">
-                      {edu.degree}
-                      {edu.minor && <span> — Minor in {edu.minor}</span>}
-                    </p>
+                  <div className="flex items-center gap-3">
+                    {edu.icon && <edu.icon className="h-10 w-10 shrink-0" />}
+                    <div>
+                      <h3 className="text-lg font-semibold leading-tight">
+                        {edu.institution}
+                      </h3>
+                      <p className="text-sm text-muted-foreground mt-0.5">
+                        {edu.degree}
+                        {edu.minor && <span> — Minor in {edu.minor}</span>}
+                      </p>
+                    </div>
                   </div>
                   <div className="flex flex-col sm:items-end gap-1 text-sm text-muted-foreground">
                     <span className="inline-flex items-center gap-1.5">

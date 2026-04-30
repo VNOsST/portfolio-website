@@ -33,25 +33,30 @@ export function ExperienceCard({
       )}
       <CardHeader className="pb-2">
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
-          <div>
-            <Link
-              to="/experiences/$experienceId"
-              params={{ experienceId: experience.id }}
-              className="hover:underline underline-offset-2"
-            >
-              <h3 className="text-base font-semibold leading-tight">
-                {experience.role}
-                {experience.type && (
-                  <span className="text-muted-foreground font-normal">
-                    {" "}
-                    ({experience.type})
-                  </span>
-                )}
-              </h3>
-            </Link>
-            <p className="text-sm text-muted-foreground mt-0.5">
-              {experience.company}
-            </p>
+          <div className="flex items-center gap-3">
+            {experience.icon && (
+              <experience.icon className="h-10 w-10 shrink-0" />
+            )}
+            <div>
+              <Link
+                to="/experiences/$experienceId"
+                params={{ experienceId: experience.id }}
+                className="hover:underline underline-offset-2"
+              >
+                <h3 className="text-base font-semibold leading-tight">
+                  {experience.role}
+                  {experience.type && (
+                    <span className="text-muted-foreground font-normal">
+                      {" "}
+                      ({experience.type})
+                    </span>
+                  )}
+                </h3>
+              </Link>
+              <p className="text-sm text-muted-foreground mt-0.5">
+                {experience.company}
+              </p>
+            </div>
           </div>
           <div className="flex flex-col sm:items-end gap-0.5 text-xs text-muted-foreground">
             <span className="inline-flex items-center gap-1">

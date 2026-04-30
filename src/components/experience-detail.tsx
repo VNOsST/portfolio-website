@@ -33,19 +33,24 @@ export function ExperienceDetail({ experience }: ExperienceDetailProps) {
       )}
 
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-        <div>
-          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">
-            {experience.role}
-            {experience.type && (
-              <span className="text-muted-foreground font-normal">
-                {" "}
-                ({experience.type})
-              </span>
-            )}
-          </h1>
-          <p className="text-base text-muted-foreground mt-1">
-            {experience.company}
-          </p>
+        <div className="flex items-center gap-4">
+          {experience.icon && (
+            <experience.icon className="h-14 w-14 shrink-0" />
+          )}
+          <div>
+            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">
+              {experience.role}
+              {experience.type && (
+                <span className="text-muted-foreground font-normal">
+                  {" "}
+                  ({experience.type})
+                </span>
+              )}
+            </h1>
+            <p className="text-base text-muted-foreground mt-1">
+              {experience.company}
+            </p>
+          </div>
         </div>
         <div className="flex flex-col sm:items-end gap-1 text-sm text-muted-foreground">
           <span className="inline-flex items-center gap-1.5">

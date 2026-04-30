@@ -1,3 +1,4 @@
+import type { ComponentType } from "react"
 import type { TechnologyId } from "@/data/technologies"
 export type { TechnologyId }
 
@@ -18,6 +19,7 @@ export interface Profile {
 export interface Experience {
   id: string
   company: string
+  icon?: ComponentType<{ className?: string }>
   location: string
   role: string
   type?: string
@@ -52,6 +54,7 @@ export interface SkillCategory {
 
 export interface Education {
   institution: string
+  icon?: ComponentType<{ className?: string }>
   location: string
   degree: string
   minor?: string

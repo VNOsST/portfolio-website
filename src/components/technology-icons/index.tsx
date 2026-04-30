@@ -25,3 +25,5 @@ export {
   ECSIcon,
   SSMIcon,
 } from "./aws"
+export { NashTechIcon } from "./nash-tech"
+export { RmitIcon } from "./rmit"

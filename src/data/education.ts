@@ -1,8 +1,10 @@
 import type { Education } from "@/types"
+import { RmitIcon } from "@/components/technology-icons"
 
 export const education: Array<Education> = [
   {
     institution: "RMIT University",
+    icon: RmitIcon,
     location: "Ho Chi Minh City, Vietnam",
     degree: "Bachelor of Information Technology",
     minor: "Cloud Technologies",
