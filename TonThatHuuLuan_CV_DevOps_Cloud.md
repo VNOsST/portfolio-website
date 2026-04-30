@@ -19,14 +19,14 @@ Software Engineer (Internship) **May 2025 \- Sep 2025**
 - Designed distributed system components using Redis Pub/Sub and WebSockets for real-time communication at scale.
 
 **PROJECTS**  
-**CINECLOUD**   
+**CINECLOUD**  
 Cloud-Native Cinema Booking Platform \- [GitHub](https://github.com/VNOsST/cosc2822-group-project) **Dec 2025 \- Jan 2026**
 
 - Designed and deployed a serverless microservices architecture on AWS (Lambda, API Gateway, DynamoDB, Cognito) with infrastructure fully defined in AWS SAM and CloudFormation, including VPC networking, SQS/SNS event-driven pipelines, and ElastiCache Redis.
 - Containerized the frontend with Docker multi-stage builds and deployed to ECS with auto-scaling EC2 instances behind an Application Load Balancer, managed via CloudFormation.
 - Automated end-to-end deployments using GitHub Actions for both backend (SAM) and frontend (Docker → ECR → ECS), supporting parameterized multi-environment releases via SSM Parameter Store.
 
-**EDUCATION**   
+**EDUCATION**  
 **RMIT UNIVERSITY** **Ho Chi Minh City, Vietnam**  
 Bachelor of Information Technology; Minor in Cloud Technologies **Oct 2022 \- Apr 2026**  
 **GPA: 3.7/4.0**

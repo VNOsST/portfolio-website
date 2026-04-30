@@ -6,15 +6,12 @@ import { Separator } from "@/components/ui/separator"
 import { TechnologyBadge } from "@/components/technology-badge"
 import { TechnologyFilter } from "@/components/technology-filter"
 import { projects } from "@/data/projects"
-import {
-  getTechnology,
-  matchesAnyTechnologyFilter,
-} from "@/data/technologies"
+import { getTechnology, matchesAnyTechnologyFilter } from "@/data/technologies"
 import { IconCalendar, IconExternalLink } from "@tabler/icons-react"
 import type { TechnologyId } from "@/types"
 
 export function ProjectsSection() {
-  const [activeFilters, setActiveFilters] = useState<TechnologyId[]>([])
+  const [activeFilters, setActiveFilters] = useState<Array<TechnologyId>>([])
 
   const allTechIds = useMemo(() => {
     const set = new Set<TechnologyId>()
@@ -62,9 +59,7 @@ export function ProjectsSection() {
           {activeFilters.length > 0 && (
             <p className="text-xs text-muted-foreground">
               Showing results for{" "}
-              <span className="font-medium text-foreground">
-                {filterLabel}
-              </span>{" "}
+              <span className="font-medium text-foreground">{filterLabel}</span>{" "}
               {filteredProjects.length > 0
                 ? `(${filteredProjects.length} item${filteredProjects.length === 1 ? "" : "s"})`
                 : "(no matches)"}

@@ -20,7 +20,7 @@ Software Engineer (Internship) **May 2025 \- Sep 2025**
 - Built core AI chatbot and human-support platform capabilities, including real-time WebSockets with Redis Pub-Sub capabilities, Entra ID authentication, and human escalation queues supporting seamless AI-to-human handoff and **reducing average support resolution time by 30%**.
 - Architected and deployed the full cloud-native platform on Azure (Container Apps, Static Web Apps) with secure multi-environment configurations and Azure Pipelines CI/CD, **reducing deployment time by 70%** and significantly improving developer release velocity.
 
-**EDUCATION**   
+**EDUCATION**  
 **RMIT UNIVERSITY** **Ho Chi Minh City, Vietnam**  
 Bachelor of Information Technology; Minor in Cloud Technologies **Oct 2022 \- Apr 2026**  
 **GPA: 3.7/4.0**

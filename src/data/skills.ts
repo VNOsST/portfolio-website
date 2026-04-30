@@ -1,6 +1,6 @@
 import type { SkillCategory } from "@/types"
 
-export const skills: SkillCategory[] = [
+export const skills: Array<SkillCategory> = [
   {
     category: "Languages",
     skills: ["typescript", "python", "java"],

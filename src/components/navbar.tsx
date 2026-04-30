@@ -24,7 +24,10 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
     e.preventDefault()
     setMobileOpen(false)
     const el = document.querySelector(href)
@@ -75,21 +78,21 @@ export function Navbar() {
                   <IconMenu className="h-5 w-5" />
                 </Button>
               </SheetTrigger>
-            <SheetContent side="top" className="w-full">
-              <div className="flex flex-col gap-2 mt-4">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    onClick={(e) => handleClick(e, link.href)}
-                    className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                ))}
-              </div>
-            </SheetContent>
-          </Sheet>
+              <SheetContent side="top" className="w-full">
+                <div className="flex flex-col gap-2 mt-4">
+                  {navLinks.map((link) => (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      onClick={(e) => handleClick(e, link.href)}
+                      className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </nav>
       </div>

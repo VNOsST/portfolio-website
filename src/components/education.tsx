@@ -20,9 +20,7 @@ export function EducationSection() {
                     </h3>
                     <p className="text-sm text-muted-foreground mt-0.5">
                       {edu.degree}
-                      {edu.minor && (
-                        <span> — Minor in {edu.minor}</span>
-                      )}
+                      {edu.minor && <span> — Minor in {edu.minor}</span>}
                     </p>
                   </div>
                   <div className="flex flex-col sm:items-end gap-1 text-sm text-muted-foreground">
@@ -40,7 +38,10 @@ export function EducationSection() {
               {edu.gpa && (
                 <CardContent className="pt-0">
                   <p className="text-sm text-muted-foreground">
-                    GPA: <span className="font-medium text-foreground">{edu.gpa}</span>
+                    GPA:{" "}
+                    <span className="font-medium text-foreground">
+                      {edu.gpa}
+                    </span>
                   </p>
                 </CardContent>
               )}

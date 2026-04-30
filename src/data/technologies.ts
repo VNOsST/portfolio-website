@@ -41,24 +41,82 @@ import type { Technology, TechnologyId } from "@/types"
 
 export const technologies: Record<TechnologyId, Technology> = {
   aws: { id: "aws", name: "AWS", icon: IconBrandAws },
-  lambda: { id: "lambda", name: "AWS Lambda", icon: IconLambda, parentId: "aws" },
-  "api-gateway": { id: "api-gateway", name: "API Gateway", icon: IconApi, parentId: "aws" },
-  dynamodb: { id: "dynamodb", name: "DynamoDB", icon: IconDatabase, parentId: "aws" },
-  cognito: { id: "cognito", name: "Cognito", icon: IconShieldLock, parentId: "aws" },
+  lambda: {
+    id: "lambda",
+    name: "AWS Lambda",
+    icon: IconLambda,
+    parentId: "aws",
+  },
+  "api-gateway": {
+    id: "api-gateway",
+    name: "API Gateway",
+    icon: IconApi,
+    parentId: "aws",
+  },
+  dynamodb: {
+    id: "dynamodb",
+    name: "DynamoDB",
+    icon: IconDatabase,
+    parentId: "aws",
+  },
+  cognito: {
+    id: "cognito",
+    name: "Cognito",
+    icon: IconShieldLock,
+    parentId: "aws",
+  },
   sam: { id: "sam", name: "AWS SAM", icon: IconCloudCog, parentId: "aws" },
-  cloudformation: { id: "cloudformation", name: "CloudFormation", icon: IconCloud, parentId: "aws" },
+  cloudformation: {
+    id: "cloudformation",
+    name: "CloudFormation",
+    icon: IconCloud,
+    parentId: "aws",
+  },
   ecs: { id: "ecs", name: "ECS", icon: IconContainer, parentId: "aws" },
-  ssm: { id: "ssm", name: "SSM", icon: IconSettingsAutomation, parentId: "aws" },
+  ssm: {
+    id: "ssm",
+    name: "SSM",
+    icon: IconSettingsAutomation,
+    parentId: "aws",
+  },
   docker: { id: "docker", name: "Docker", icon: IconBrandDocker },
-  "github-actions": { id: "github-actions", name: "GitHub Actions", icon: GitHubActionsIcon },
-  nextjs: { id: "nextjs", name: "Next.js", icon: IconBrandNextjs, parentId: "react" },
+  "github-actions": {
+    id: "github-actions",
+    name: "GitHub Actions",
+    icon: GitHubActionsIcon,
+  },
+  nextjs: {
+    id: "nextjs",
+    name: "Next.js",
+    icon: IconBrandNextjs,
+    parentId: "react",
+  },
   react: { id: "react", name: "React", icon: IconBrandReact },
-  typescript: { id: "typescript", name: "TypeScript", icon: IconBrandTypescript },
+  typescript: {
+    id: "typescript",
+    name: "TypeScript",
+    icon: IconBrandTypescript,
+  },
   flutter: { id: "flutter", name: "Flutter", icon: IconBrandFlutter },
   azure: { id: "azure", name: "Azure", icon: IconBrandAzure },
-  "container-apps": { id: "container-apps", name: "Container Apps", icon: IconPackage, parentId: "azure" },
-  "static-web-apps": { id: "static-web-apps", name: "Static Web Apps", icon: IconAppWindow, parentId: "azure" },
-  "azure-devops": { id: "azure-devops", name: "Azure DevOps", icon: AzureDevOpsIcon, parentId: "azure" },
+  "container-apps": {
+    id: "container-apps",
+    name: "Container Apps",
+    icon: IconPackage,
+    parentId: "azure",
+  },
+  "static-web-apps": {
+    id: "static-web-apps",
+    name: "Static Web Apps",
+    icon: IconAppWindow,
+    parentId: "azure",
+  },
+  "azure-devops": {
+    id: "azure-devops",
+    name: "Azure DevOps",
+    icon: AzureDevOpsIcon,
+    parentId: "azure",
+  },
   redis: { id: "redis", name: "Redis", icon: RedisIcon },
   websockets: { id: "websockets", name: "WebSockets", icon: WebSocketIcon },
   "ai-rag": { id: "ai-rag", name: "AI / RAG", icon: IconBrain },
@@ -67,10 +125,19 @@ export const technologies: Record<TechnologyId, Technology> = {
   python: { id: "python", name: "Python", icon: IconBrandPython },
   postgresql: { id: "postgresql", name: "PostgreSQL", icon: PostgreSqlIcon },
   mongodb: { id: "mongodb", name: "MongoDB", icon: IconBrandMongodb },
-  tailwindcss: { id: "tailwindcss", name: "Tailwind CSS", icon: IconBrandTailwind },
+  tailwindcss: {
+    id: "tailwindcss",
+    name: "Tailwind CSS",
+    icon: IconBrandTailwind,
+  },
   fastapi: { id: "fastapi", name: "FastAPI", icon: FastApiIcon },
   java: { id: "java", name: "Java", icon: JavaIcon },
-  supabase: { id: "supabase", name: "Supabase", icon: IconBrandSupabase, parentId: "postgresql" },
+  supabase: {
+    id: "supabase",
+    name: "Supabase",
+    icon: IconBrandSupabase,
+    parentId: "postgresql",
+  },
   jenkins: { id: "jenkins", name: "Jenkins", icon: JenkinsIcon },
   ansible: { id: "ansible", name: "Ansible", icon: AnsibleIcon },
   vitest: { id: "vitest", name: "Vitest", icon: VitestIcon },
@@ -114,7 +181,7 @@ export function matchesAnyTechnologyFilter(
   )
 }
 
-export function getAllTechnologyIds(): Array<TechnologyId> { 
+export function getAllTechnologyIds(): Array<TechnologyId> {
   return Object.keys(technologies) as Array<TechnologyId>
 }
 

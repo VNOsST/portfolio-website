@@ -1,6 +1,6 @@
 import type { Project } from "@/types"
 
-export const projects: Project[] = [
+export const projects: Array<Project> = [
   {
     id: "cinecloud",
     title: "CineCloud",

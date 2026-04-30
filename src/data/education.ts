@@ -1,6 +1,6 @@
 import type { Education } from "@/types"
 
-export const education: Education[] = [
+export const education: Array<Education> = [
   {
     institution: "RMIT University",
     location: "Ho Chi Minh City, Vietnam",

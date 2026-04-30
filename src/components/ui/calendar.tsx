@@ -132,22 +132,22 @@ function Calendar({
         ...classNames,
       }}
       components={{
-        Root: ({ className, rootRef, ...props }) => {
+        Root: ({ className: rootClassName, rootRef, ...rest }) => {
           return (
             <div
               data-slot="calendar"
               ref={rootRef}
-              className={cn(className)}
-              {...props}
+              className={cn(rootClassName)}
+              {...rest}
             />
           )
         },
-        Chevron: ({ className, orientation, ...props }) => {
+        Chevron: ({ className: chevronClassName, orientation, ...rest }) => {
           if (orientation === "left") {
             return (
               <IconChevronLeft
-                className={cn("rtl:rotate-180 size-4", className)}
-                {...props}
+                className={cn("rtl:rotate-180 size-4", chevronClassName)}
+                {...rest}
               />
             )
           }
@@ -155,22 +155,25 @@ function Calendar({
           if (orientation === "right") {
             return (
               <IconChevronRight
-                className={cn("rtl:rotate-180 size-4", className)}
-                {...props}
+                className={cn("rtl:rotate-180 size-4", chevronClassName)}
+                {...rest}
               />
             )
           }
 
           return (
-            <IconChevronDown className={cn("size-4", className)} {...props} />
+            <IconChevronDown
+              className={cn("size-4", chevronClassName)}
+              {...rest}
+            />
           )
         },
-        DayButton: ({ ...props }) => (
-          <CalendarDayButton locale={locale} {...props} />
+        DayButton: ({ ...rest }) => (
+          <CalendarDayButton locale={locale} {...rest} />
         ),
-        WeekNumber: ({ children, ...props }) => {
+        WeekNumber: ({ children, ...rest }) => {
           return (
-            <td {...props}>
+            <td {...rest}>
               <div className="flex size-(--cell-size) items-center justify-center text-center">
                 {children}
               </div>

@@ -6,7 +6,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { useTheme } from "@/components/theme-provider"
-import { IconSun, IconMoon, IconDeviceDesktop, IconCheck } from "@tabler/icons-react"
+import {
+  IconSun,
+  IconMoon,
+  IconDeviceDesktop,
+  IconCheck,
+} from "@tabler/icons-react"
 
 export function ModeToggle() {
   const { theme, setTheme } = useTheme()
@@ -23,7 +28,9 @@ export function ModeToggle() {
         <Button variant="ghost" size="icon-sm" aria-label="Toggle theme">
           {theme === "light" && <IconSun className="h-[1.1rem] w-[1.1rem]" />}
           {theme === "dark" && <IconMoon className="h-[1.1rem] w-[1.1rem]" />}
-          {theme === "system" && <IconDeviceDesktop className="h-[1.1rem] w-[1.1rem]" />}
+          {theme === "system" && (
+            <IconDeviceDesktop className="h-[1.1rem] w-[1.1rem]" />
+          )}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">

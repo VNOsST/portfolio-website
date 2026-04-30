@@ -1,7 +1,11 @@
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
 import { profile } from "@/data/profile"
-import { IconMail, IconBrandLinkedin, IconBrandGithub } from "@tabler/icons-react"
+import {
+  IconMail,
+  IconBrandLinkedin,
+  IconBrandGithub,
+} from "@tabler/icons-react"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()

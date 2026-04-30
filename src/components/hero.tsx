@@ -1,7 +1,12 @@
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { profile } from "@/data/profile"
-import { IconMapPin, IconMail, IconBrandLinkedin, IconBrandGithub } from "@tabler/icons-react"
+import {
+  IconMapPin,
+  IconMail,
+  IconBrandLinkedin,
+  IconBrandGithub,
+} from "@tabler/icons-react"
 
 export function Hero() {
   return (
@@ -39,13 +44,21 @@ export function Hero() {
               </a>
             </Button>
             <Button variant="outline" size="sm" asChild>
-              <a href={profile.linkedin} target="_blank" rel="noopener noreferrer">
+              <a
+                href={profile.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <IconBrandLinkedin className="h-4 w-4 mr-1.5" />
                 LinkedIn
               </a>
             </Button>
             <Button variant="outline" size="sm" asChild>
-              <a href={profile.github} target="_blank" rel="noopener noreferrer">
+              <a
+                href={profile.github}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <IconBrandGithub className="h-4 w-4 mr-1.5" />
                 GitHub
               </a>

@@ -9,9 +9,9 @@ interface ThemeProviderState {
   toggleTheme: () => void
 }
 
-const ThemeProviderContext = React.createContext<ThemeProviderState | undefined>(
-  undefined
-)
+const ThemeProviderContext = React.createContext<
+  ThemeProviderState | undefined
+>(undefined)
 
 export function ThemeProvider({
   children,
@@ -24,7 +24,10 @@ export function ThemeProvider({
 }) {
   const [theme, setThemeState] = React.useState<Theme>(() => {
     if (typeof window !== "undefined") {
-      return (localStorage.getItem(storageKey) as Theme) || defaultTheme
+      const stored = localStorage.getItem(storageKey)
+      if (stored === "dark" || stored === "light" || stored === "system") {
+        return stored
+      }
     }
     return defaultTheme
   })

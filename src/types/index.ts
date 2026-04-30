@@ -63,9 +63,9 @@ export interface Experience {
   type?: string
   startDate: string
   endDate: string
-  highlights: string[]
-  technologies: TechnologyId[]
-  tags: string[]
+  highlights: Array<string>
+  technologies: Array<TechnologyId>
+  tags: Array<string>
 }
 
 export interface Project {
@@ -76,14 +76,14 @@ export interface Project {
   demo?: string
   startDate: string
   endDate: string
-  highlights: string[]
-  technologies: TechnologyId[]
-  tags: string[]
+  highlights: Array<string>
+  technologies: Array<TechnologyId>
+  tags: Array<string>
 }
 
 export interface SkillCategory {
   category: string
-  skills: TechnologyId[]
+  skills: Array<TechnologyId>
 }
 
 export interface Education {

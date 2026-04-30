@@ -95,11 +95,7 @@ export function TechnologyFilter({
           </ComboboxContent>
         </ComboboxPrimitive.Root>
         {value.length > 0 && (
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => onChange([])}
-          >
+          <Button variant="ghost" size="sm" onClick={() => onChange([])}>
             Clear all
           </Button>
         )}
