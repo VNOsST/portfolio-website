@@ -1,6 +1,7 @@
 import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router"
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools"
 import { TanStackDevtools } from "@tanstack/react-devtools"
+import { ThemeProvider } from "@/components/theme-provider"
 
 import appCss from "../styles.css?url"
 
@@ -15,7 +16,12 @@ export const Route = createRootRoute({
         content: "width=device-width, initial-scale=1",
       },
       {
-        title: "TanStack Start Starter",
+        title: "Ton That Huu Luan — Software Engineer",
+      },
+      {
+        name: "description",
+        content:
+          "Portfolio of Ton That Huu Luan — Software Engineer experienced in web, mobile, and cloud-native development with TypeScript, React, Next.js, Node.js, Python, AWS, and Azure.",
       },
     ],
     links: [
@@ -36,12 +42,14 @@ export const Route = createRootRoute({
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>
-      <body>
-        {children}
+      <body className="antialiased">
+        <ThemeProvider defaultTheme="system" storageKey="portfolio-theme">
+          {children}
+        </ThemeProvider>
         <TanStackDevtools
           config={{
             position: "bottom-right",
