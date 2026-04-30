@@ -68,6 +68,8 @@ export interface Experience {
   highlights: Array<string>
   technologies: Array<TechnologyId>
   tags: Array<string>
+  thumbnail_image?: string
+  images?: Array<{ src: string; alt?: string }>
 }
 
 export interface Project {
@@ -81,6 +83,8 @@ export interface Project {
   highlights: Array<string>
   technologies: Array<TechnologyId>
   tags: Array<string>
+  thumbnail_image?: string
+  images?: Array<{ src: string; alt?: string }>
 }
 
 export interface SkillCategory {

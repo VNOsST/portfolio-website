@@ -2,10 +2,19 @@ import { useMemo, useState } from "react"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
+import { AspectRatio } from "@/components/ui/aspect-ratio"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
 import { TechnologyBadge } from "@/components/technology-badge"
 import { TechnologyFilter } from "@/components/technology-filter"
 import { experiences } from "@/data/experiences"
 import { getTechnology, matchesAnyTechnologyFilter } from "@/data/technologies"
+import { buildImageUrl } from "@/lib/r2"
 import { IconMapPin, IconCalendar } from "@tabler/icons-react"
 import type { TechnologyId } from "@/types"
 
@@ -68,7 +77,17 @@ export function ExperienceSection() {
 
         <div className="flex flex-col gap-6">
           {filteredExperiences.map((exp) => (
-            <Card key={exp.id} className="group">
+            <Card key={exp.id} className="group overflow-hidden">
+              {exp.thumbnail_image && (
+                <AspectRatio ratio={21 / 9}>
+                  <img
+                    src={buildImageUrl(exp.thumbnail_image)}
+                    alt={`${exp.company} thumbnail`}
+                    className="absolute inset-0 h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                </AspectRatio>
+              )}
               <CardHeader className="pb-3">
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
                   <div>
@@ -106,6 +125,28 @@ export function ExperienceSection() {
                     </li>
                   ))}
                 </ul>
+                {exp.images && exp.images.length > 0 && (
+                  <div className="my-4">
+                    <Carousel className="w-full">
+                      <CarouselContent>
+                        {exp.images.map((img, idx) => (
+                          <CarouselItem key={idx}>
+                            <AspectRatio ratio={16 / 9}>
+                              <img
+                                src={buildImageUrl(img.src)}
+                                alt={img.alt || `${exp.company} screenshot ${idx + 1}`}
+                                className="absolute inset-0 h-full w-full object-cover rounded-md"
+                                loading="lazy"
+                              />
+                            </AspectRatio>
+                          </CarouselItem>
+                        ))}
+                      </CarouselContent>
+                      <CarouselPrevious className="start-2" />
+                      <CarouselNext className="end-2" />
+                    </Carousel>
+                  </div>
+                )}
                 <Separator className="my-4" />
                 <div className="flex flex-wrap gap-2">
                   {exp.technologies.map((techId) => (

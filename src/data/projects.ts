@@ -28,5 +28,11 @@ export const projects: Array<Project> = [
       "ssm",
     ],
     tags: ["Serverless", "Microservices", "Event-Driven", "CI/CD"],
+    // Uncomment and update after uploading images to R2:
+    // thumbnail_image: "projects/cinecloud/thumbnail.png",
+    // images: [
+    //   { src: "projects/cinecloud/screenshot-1.png", alt: "Dashboard view" },
+    //   { src: "projects/cinecloud/screenshot-2.png", alt: "Booking flow" },
+    // ],
   },
 ]

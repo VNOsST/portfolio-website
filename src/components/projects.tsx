@@ -3,10 +3,19 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
+import { AspectRatio } from "@/components/ui/aspect-ratio"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
 import { TechnologyBadge } from "@/components/technology-badge"
 import { TechnologyFilter } from "@/components/technology-filter"
 import { projects } from "@/data/projects"
 import { getTechnology, matchesAnyTechnologyFilter } from "@/data/technologies"
+import { buildImageUrl } from "@/lib/r2"
 import { IconCalendar, IconExternalLink } from "@tabler/icons-react"
 import type { TechnologyId } from "@/types"
 
@@ -69,7 +78,17 @@ export function ProjectsSection() {
 
         <div className="grid gap-6 sm:grid-cols-2">
           {filteredProjects.map((project) => (
-            <Card key={project.id} className="flex flex-col h-full">
+            <Card key={project.id} className="flex flex-col h-full overflow-hidden">
+              {project.thumbnail_image && (
+                <AspectRatio ratio={16 / 9}>
+                  <img
+                    src={buildImageUrl(project.thumbnail_image)}
+                    alt={`${project.title} thumbnail`}
+                    className="absolute inset-0 h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                </AspectRatio>
+              )}
               <CardHeader className="pb-3">
                 <div className="flex items-start justify-between gap-3">
                   <div>
@@ -112,6 +131,28 @@ export function ProjectsSection() {
                     </li>
                   ))}
                 </ul>
+                {project.images && project.images.length > 0 && (
+                  <div className="mb-4">
+                    <Carousel className="w-full">
+                      <CarouselContent>
+                        {project.images.map((img, idx) => (
+                          <CarouselItem key={idx}>
+                            <AspectRatio ratio={16 / 9}>
+                              <img
+                                src={buildImageUrl(img.src)}
+                                alt={img.alt || `${project.title} screenshot ${idx + 1}`}
+                                className="absolute inset-0 h-full w-full object-cover rounded-md"
+                                loading="lazy"
+                              />
+                            </AspectRatio>
+                          </CarouselItem>
+                        ))}
+                      </CarouselContent>
+                      <CarouselPrevious className="start-2" />
+                      <CarouselNext className="end-2" />
+                    </Carousel>
+                  </div>
+                )}
                 <Separator className="mt-auto mb-3" />
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((techId) => (

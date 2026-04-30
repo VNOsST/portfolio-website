@@ -16,6 +16,11 @@ export const experiences: Array<Experience> = [
     ],
     technologies: ["nextjs", "react", "typescript", "flutter", "supabase"],
     tags: ["CI/CD", "AI Tooling", "Security", "Rate Limiting"],
+    // Uncomment and update after uploading images to R2:
+    // thumbnail_image: "experiences/tuturuuu/thumbnail.png",
+    // images: [
+    //   { src: "experiences/tuturuuu/screenshot-1.png", alt: "Platform overview" },
+    // ],
   },
   {
     id: "nashtech",
@@ -42,5 +47,10 @@ export const experiences: Array<Experience> = [
       "entra-id",
     ],
     tags: ["Capstone", "Cloud-Native", "Distributed Systems"],
+    // Uncomment and update after uploading images to R2:
+    // thumbnail_image: "experiences/nashtech/thumbnail.png",
+    // images: [
+    //   { src: "experiences/nashtech/screenshot-1.png", alt: "AI chatbot interface" },
+    // ],
   },
 ]
