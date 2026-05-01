@@ -42,18 +42,6 @@ export function ProjectCard({
               {project.title}
             </h3>
           </Link>
-          {project.github && (
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors shrink-0 mt-0.5"
-              aria-label="View on GitHub"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <IconExternalLink className="h-4 w-4" />
-            </a>
-          )}
         </div>
         <p className="text-xs text-muted-foreground inline-flex items-center gap-1.5">
           <IconCalendar className="h-3 w-3" />
@@ -67,7 +55,7 @@ export function ProjectCard({
       </CardContent>
       <CardFooter className="flex-col items-start gap-2 pt-0 pb-4">
         <div className="flex flex-wrap gap-1.5">
-          {project.tags.slice(0, 3).map((tag) => (
+          {project.tags?.slice(0, 3).map((tag) => (
             <Badge key={tag} variant="outline" className="text-xs font-normal">
               {tag}
             </Badge>

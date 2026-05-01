@@ -27,7 +27,7 @@ export interface Experience {
   endDate: string
   highlights: Array<string>
   technologies: Array<TechnologyId>
-  tags: Array<string>
+  tags?: Array<string>
   thumbnail_image?: string
   images?: Array<{ src: string; alt?: string }>
 }
@@ -38,11 +38,12 @@ export interface Project {
   description: string
   github?: string
   demo?: string
+  youtube?: string
   startDate: string
   endDate: string
   highlights: Array<string>
   technologies: Array<TechnologyId>
-  tags: Array<string>
+  tags?: Array<string>
   thumbnail_image?: string
   images?: Array<{ src: string; alt?: string }>
 }

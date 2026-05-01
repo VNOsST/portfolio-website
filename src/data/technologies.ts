@@ -107,7 +107,7 @@ export const technologies = {
   },
   "azure-cosmosdb": {
     id: "azure-cosmosdb",
-    name: "Cosmos DB",
+    name: "Azure Cosmos DB",
     icon: TechnologyIcons.AzureCosmosDbIcon,
     parentId: ["azure", "mongodb"],
   },

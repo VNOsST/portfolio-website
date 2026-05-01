@@ -1,6 +1,6 @@
-import type { Experience } from "@/types";
-import { NashTechIcon } from "@/components/technology-icons";
-import { TTRIcon } from "@/components/technology-icons/ttr";
+import type { Experience } from "@/types"
+import { NashTechIcon } from "@/components/technology-icons"
+import { TTRIcon } from "@/components/technology-icons/ttr"
 
 export const experiences: Array<Experience> = [
   {
@@ -18,7 +18,7 @@ export const experiences: Array<Experience> = [
       "Strengthened platform security posture by implementing rate limiting that reduced targeted attack traffic from ~800K to ~1K requests, and extended the platform's attribute-based permissions system to protect previously unprotected assets, including finance modules, workspace settings, and admin controls.",
     ],
     technologies: ["nextjs", "react", "typescript", "flutter", "supabase"],
-    tags: ["CI/CD", "AI Tooling", "Security", "Rate Limiting"],
+    // tags: ["CI/CD", "AI Tooling", "Security", "Rate Limiting"],
     // Uncomment and update after uploading images to R2:
     // thumbnail_image: "experiences/tuturuuu/tuturuuu-thumbnail.png",
     // images: [
@@ -56,11 +56,45 @@ export const experiences: Array<Experience> = [
       "fastapi",
       "docker",
     ],
-    tags: ["Capstone", "Cloud-Native", "Distributed Systems"],
-    // Uncomment and update after uploading images to R2:
-    // thumbnail_image: "experiences/nashtech/thumbnail.png",
-    // images: [
-    //   { src: "experiences/nashtech/screenshot-1.png", alt: "AI chatbot interface" },
-    // ],
+    // tags: ["Capstone", "Cloud-Native", "Distributed Systems"],
+    images: [
+      { src: "experiences/nashtech/LeBon/LeBon_1.webp", alt: "LeBon Chat UI" },
+      {
+        src: "experiences/nashtech/LeBon/LeBon_2.webp",
+        alt: "LeBon Chat UI #2",
+      },
+      {
+        src: "experiences/nashtech/LeBon/LeBon_3.webp",
+        alt: "Human Support Chat UI",
+      },
+      {
+        src: "experiences/nashtech/LeBon/LeBon_4.webp",
+        alt: "LeBon Human Support Escalation UI",
+      },
+      {
+        src: "experiences/nashtech/LeBon/LeBon_5.webp",
+        alt: "Human Support Escalation Queue",
+      },
+      {
+        src: "experiences/nashtech/LeBon/LeBon_6.webp",
+        alt: "LeBon Authentication Methods",
+      },
+      {
+        src: "experiences/nashtech/LeBon/LeBon_7.webp",
+        alt: "LeBon Agents Manager",
+      },
+      {
+        src: "experiences/nashtech/LeBon/LeBon_8.webp",
+        alt: "LeBon Agents Manager #2",
+      },
+      {
+        src: "experiences/nashtech/LeBon/LeBon_9.webp",
+        alt: "LeBon Home Page",
+      },
+      {
+        src: "experiences/nashtech/LeBon/LeBon_10.webp",
+        alt: "LeBon System Architecture",
+      },
+    ],
   },
-];
+]

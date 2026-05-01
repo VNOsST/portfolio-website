@@ -1,36 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" suppressHydrationWarning>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ton That Huu Luan — Software Engineer</title>
+    <title>Ton That Huu Luan</title>
     <meta
       name="description"
       content="Portfolio of Ton That Huu Luan — Software Engineer experienced in web, mobile, and cloud-native development with TypeScript, React, Next.js, Node.js, Python, AWS, and Azure."
     />
+    <!-- Open Graph -->
+    <meta property="og:title" content="Ton That Huu Luan" />
+    <meta property="og:description" content="Portfolio of Ton That Huu Luan — Software Engineer experienced in web, mobile, and cloud-native development with TypeScript, React, Next.js, Node.js, Python, AWS, and Azure." />
+    <meta property="og:image" content="%VITE_R2_PUBLIC_URL%/og.png" />
+    <meta property="og:url" content="%VITE_WEBSITE_URL%" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Ton That Huu Luan" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <script>
-      (function () {
-        const storageKey = "portfolio-theme";
-        let theme;
+      ;(function () {
+        const storageKey = "portfolio-theme"
+        let theme
         try {
-          theme = localStorage.getItem(storageKey);
+          theme = localStorage.getItem(storageKey)
         } catch (e) {}
-        let resolved = "light";
+        let resolved = "light"
         if (theme === "dark") {
-          resolved = "dark";
+          resolved = "dark"
         } else if (theme === "system" || !theme) {
           resolved = window.matchMedia("(prefers-color-scheme: dark)").matches
             ? "dark"
-            : "light";
+            : "light"
         }
-        const root = document.documentElement;
-        root.classList.remove("light", "dark");
-        root.classList.add(resolved);
-      })();
+        const root = document.documentElement
+        root.classList.remove("light", "dark")
+        root.classList.add(resolved)
+      })()
     </script>
   </head>
   <body class="antialiased">

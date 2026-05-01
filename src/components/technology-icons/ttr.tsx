@@ -33,5 +33,5 @@ export function TTRIcon({ className }: { className?: string }) {
         fill="#4180E9"
       />
     </svg>
-  );
+  )
 }

@@ -77,7 +77,7 @@ export function ExperienceCard({
       </CardContent>
       <CardFooter className="flex-col items-start gap-2 pt-0 pb-4">
         <div className="flex flex-wrap gap-1.5">
-          {experience.tags.slice(0, 3).map((tag) => (
+          {experience.tags?.slice(0, 3).map((tag) => (
             <Badge
               key={tag}
               variant="secondary"
