@@ -1,3 +1,5 @@
+import { createSimpleIcon } from "./create-simple-icon"
+
 export function LambdaIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -269,3 +271,37 @@ export function SSMIcon({ className }: { className?: string }) {
     </svg>
   )
 }
+
+export const S3Icon = createSimpleIcon(
+  "S3",
+  "M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+)
+export const SQSIcon = createSimpleIcon(
+  "SQS",
+  "M4 4h16v4H4V4zm0 6h16v4H4v-4zm0 6h16v4H4v-4z"
+)
+export const SNSIcon = createSimpleIcon(
+  "SNS",
+  "M12 2L2 7v10l10 5 10-5V7L12 2zm0 4l5 2.5v5L12 16l-5-2.5v-5L12 6z"
+)
+export const ElastiCacheIcon = createSimpleIcon(
+  "ElastiCache",
+  "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"
+)
+export const VPCIcon = createSimpleIcon("VPC", "M3 3h18v18H3V3zm2 2v14h14V5H5z")
+export const IAMIcon = createSimpleIcon(
+  "IAM",
+  "M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm0 4l4 1.5v3L12 12 8 10.5V8.5L12 7z"
+)
+export const CloudWatchIcon = createSimpleIcon(
+  "CloudWatch",
+  "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"
+)
+export const ECRIcon = createSimpleIcon(
+  "ECR",
+  "M12 2L2 7v10l10 5 10-5V7l-10-5zm0 3l5 2.5v5L12 14l-5-2.5v-5L12 5z"
+)
+export const ALBIcon = createSimpleIcon(
+  "ALB",
+  "M12 2L2 7v10l10 5 10-5V7l-10-5zM12 8l4 2v4l-4 2-4-2V10l4-2z"
+)

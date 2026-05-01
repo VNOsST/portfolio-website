@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
+import { Card, CardFooter, CardHeader } from "@/components/ui/card"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 import { TechnologyBadge } from "@/components/technology-badge"
 import { BadgeScrollRow } from "@/components/badge-scroll-row"
@@ -70,11 +70,11 @@ export function ExperienceCard({
           </div>
         </div>
       </CardHeader>
-      <CardContent className="pt-0">
+      {/* <CardContent className="pt-0">
         <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
           {experience.highlights[0]}
         </p>
-      </CardContent>
+      </CardContent> */}
       <CardFooter className="flex-col items-start gap-2 pt-0 pb-4">
         <div className="flex flex-wrap gap-1.5">
           {experience.tags?.slice(0, 3).map((tag) => (

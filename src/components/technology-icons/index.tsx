@@ -24,6 +24,18 @@ export {
   CloudFormationIcon,
   ECSIcon,
   SSMIcon,
+  S3Icon,
+  SQSIcon,
+  SNSIcon,
+  ElastiCacheIcon,
+  VPCIcon,
+  IAMIcon,
+  CloudWatchIcon,
+  ECRIcon,
+  ALBIcon,
 } from "./aws"
 export { NashTechIcon } from "./nash-tech"
 export { RmitIcon } from "./rmit"
+export { HonoIcon } from "./hono"
+export { TanStackStartIcon } from "./tanstack-start"
+export { BunIcon } from "./bun"

@@ -4,7 +4,7 @@ import { AspectRatio } from "@/components/ui/aspect-ratio"
 import { TechnologyBadge } from "@/components/technology-badge"
 import { BadgeScrollRow } from "@/components/badge-scroll-row"
 import { buildImageUrl } from "@/lib/r2"
-import { IconCalendar, IconExternalLink } from "@tabler/icons-react"
+import { IconCalendar } from "@tabler/icons-react"
 import { Link } from "@tanstack/react-router"
 import type { Project, TechnologyId } from "@/types"
 
