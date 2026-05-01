@@ -16,9 +16,9 @@ function HomePage() {
       <Navbar />
       <main>
         <Hero />
-        <WorkSections showFilter={false} limit={3} />
-        <SkillsSection />
+        <WorkSections showFilter={false} limit={2} />
         <EducationSection />
+        <SkillsSection />
       </main>
       <Footer />
     </div>

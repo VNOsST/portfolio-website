@@ -116,10 +116,10 @@ export const technologies = {
     icon: TechnologyIcons.HonoIcon,
     parentId: "nodejs",
   },
-  tanstackstart: {
-    id: "tanstackstart",
-    name: "TanStack Start",
-    icon: TechnologyIcons.TanStackStartIcon,
+  tanstackrouter: {
+    id: "tanstackrouter",
+    name: "TanStack Router",
+    icon: TechnologyIcons.TanStackIcon,
   },
   bun: {
     id: "bun",
@@ -211,7 +211,7 @@ export const technologies = {
     id: "supabase",
     name: "Supabase",
     icon: IconBrandSupabase,
-    parentId: "postgresql",
+    parentId: ["postgresql", "s3"],
   },
   jenkins: {
     id: "jenkins",
@@ -229,6 +229,17 @@ export const technologies = {
     id: "openai",
     name: "OpenAI Agents SDK",
     icon: IconBrandOpenai,
+  },
+  "cloudflare-pages": {
+    id: "cloudflare-pages",
+    name: "Cloudflare Pages",
+    icon: TechnologyIcons.CloudflarePagesIcon,
+  },
+  "cloudflare-r2": {
+    id: "cloudflare-r2",
+    name: "Cloudflare R2",
+    icon: TechnologyIcons.CloudflareIcon,
+    parentId: "s3",
   },
 } satisfies Record<string, Technology>
 

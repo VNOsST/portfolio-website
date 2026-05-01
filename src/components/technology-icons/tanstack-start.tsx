@@ -1,4 +1,4 @@
-export const TanStackStartIcon = ({ className }: { className?: string }) => {
+export const TanStackIcon = ({ className }: { className?: string }) => {
   return (
     <svg
       role="img"

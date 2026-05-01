@@ -8,67 +8,67 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-import { Route as rootRouteImport } from "./routes/__root"
-import { Route as WorkRouteImport } from "./routes/work"
-import { Route as IndexRouteImport } from "./routes/index"
-import { Route as ProjectsProjectIdRouteImport } from "./routes/projects.$projectId"
-import { Route as ExperiencesExperienceIdRouteImport } from "./routes/experiences.$experienceId"
+import { Route as rootRouteImport } from './routes/__root'
+import { Route as WorkRouteImport } from './routes/work'
+import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProjectsProjectIdRouteImport } from './routes/projects.$projectId'
+import { Route as ExperiencesExperienceIdRouteImport } from './routes/experiences.$experienceId'
 
 const WorkRoute = WorkRouteImport.update({
-  id: "/work",
-  path: "/work",
+  id: '/work',
+  path: '/work',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
-  id: "/",
-  path: "/",
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProjectsProjectIdRoute = ProjectsProjectIdRouteImport.update({
-  id: "/projects/$projectId",
-  path: "/projects/$projectId",
+  id: '/projects/$projectId',
+  path: '/projects/$projectId',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExperiencesExperienceIdRoute = ExperiencesExperienceIdRouteImport.update({
-  id: "/experiences/$experienceId",
-  path: "/experiences/$experienceId",
+  id: '/experiences/$experienceId',
+  path: '/experiences/$experienceId',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
-  "/": typeof IndexRoute
-  "/work": typeof WorkRoute
-  "/experiences/$experienceId": typeof ExperiencesExperienceIdRoute
-  "/projects/$projectId": typeof ProjectsProjectIdRoute
+  '/': typeof IndexRoute
+  '/work': typeof WorkRoute
+  '/experiences/$experienceId': typeof ExperiencesExperienceIdRoute
+  '/projects/$projectId': typeof ProjectsProjectIdRoute
 }
 export interface FileRoutesByTo {
-  "/": typeof IndexRoute
-  "/work": typeof WorkRoute
-  "/experiences/$experienceId": typeof ExperiencesExperienceIdRoute
-  "/projects/$projectId": typeof ProjectsProjectIdRoute
+  '/': typeof IndexRoute
+  '/work': typeof WorkRoute
+  '/experiences/$experienceId': typeof ExperiencesExperienceIdRoute
+  '/projects/$projectId': typeof ProjectsProjectIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  "/": typeof IndexRoute
-  "/work": typeof WorkRoute
-  "/experiences/$experienceId": typeof ExperiencesExperienceIdRoute
-  "/projects/$projectId": typeof ProjectsProjectIdRoute
+  '/': typeof IndexRoute
+  '/work': typeof WorkRoute
+  '/experiences/$experienceId': typeof ExperiencesExperienceIdRoute
+  '/projects/$projectId': typeof ProjectsProjectIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | "/"
-    | "/work"
-    | "/experiences/$experienceId"
-    | "/projects/$projectId"
+    | '/'
+    | '/work'
+    | '/experiences/$experienceId'
+    | '/projects/$projectId'
   fileRoutesByTo: FileRoutesByTo
-  to: "/" | "/work" | "/experiences/$experienceId" | "/projects/$projectId"
+  to: '/' | '/work' | '/experiences/$experienceId' | '/projects/$projectId'
   id:
-    | "__root__"
-    | "/"
-    | "/work"
-    | "/experiences/$experienceId"
-    | "/projects/$projectId"
+    | '__root__'
+    | '/'
+    | '/work'
+    | '/experiences/$experienceId'
+    | '/projects/$projectId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -78,33 +78,33 @@ export interface RootRouteChildren {
   ProjectsProjectIdRoute: typeof ProjectsProjectIdRoute
 }
 
-declare module "@tanstack/react-router" {
+declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    "/work": {
-      id: "/work"
-      path: "/work"
-      fullPath: "/work"
+    '/work': {
+      id: '/work'
+      path: '/work'
+      fullPath: '/work'
       preLoaderRoute: typeof WorkRouteImport
       parentRoute: typeof rootRouteImport
     }
-    "/": {
-      id: "/"
-      path: "/"
-      fullPath: "/"
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    "/projects/$projectId": {
-      id: "/projects/$projectId"
-      path: "/projects/$projectId"
-      fullPath: "/projects/$projectId"
+    '/projects/$projectId': {
+      id: '/projects/$projectId'
+      path: '/projects/$projectId'
+      fullPath: '/projects/$projectId'
       preLoaderRoute: typeof ProjectsProjectIdRouteImport
       parentRoute: typeof rootRouteImport
     }
-    "/experiences/$experienceId": {
-      id: "/experiences/$experienceId"
-      path: "/experiences/$experienceId"
-      fullPath: "/experiences/$experienceId"
+    '/experiences/$experienceId': {
+      id: '/experiences/$experienceId'
+      path: '/experiences/$experienceId'
+      fullPath: '/experiences/$experienceId'
       preLoaderRoute: typeof ExperiencesExperienceIdRouteImport
       parentRoute: typeof rootRouteImport
     }

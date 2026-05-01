@@ -7,7 +7,7 @@ export const skills: Array<SkillCategory> = [
   },
   {
     category: "Frontend (Web)",
-    skills: ["nextjs", "react", "tailwindcss", "tanstackstart"],
+    skills: ["nextjs", "react", "tailwindcss", "tanstackrouter"],
   },
   {
     category: "Mobile",
@@ -18,17 +18,17 @@ export const skills: Array<SkillCategory> = [
     skills: ["nodejs", "bun", "fastapi", "hono"],
   },
   {
-    category: "Databases",
-    skills: ["postgresql", "mongodb", "redis", "supabase", "azure-cosmosdb"],
+    category: "Databases & Storage",
+    skills: ["postgresql", "supabase", "mongodb", "redis", "s3"],
   },
   {
     category: "Cloud & DevOps",
     skills: [
-      "docker",
       "aws",
       "azure",
       "github-actions",
       "azure-devops",
+      "docker",
       "jenkins",
       "ansible",
     ],

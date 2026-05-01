@@ -35,5 +35,6 @@ export {
 export { NashTechIcon } from "./nash-tech"
 export { RmitIcon } from "./rmit"
 export { HonoIcon } from "./hono"
-export { TanStackStartIcon } from "./tanstack-start"
+export { TanStackIcon } from "./tanstack-start"
 export { BunIcon } from "./bun"
+export { CloudflarePagesIcon, CloudflareIcon } from "./cloudflare"
