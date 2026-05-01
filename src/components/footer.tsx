@@ -5,6 +5,7 @@ import {
   IconMail,
   IconBrandLinkedin,
   IconBrandGithub,
+  IconBrandFacebook,
 } from "@tabler/icons-react"
 
 export function Footer() {
@@ -42,6 +43,16 @@ export function Footer() {
                 aria-label="GitHub"
               >
                 <IconBrandGithub className="h-4 w-4" />
+              </a>
+            </Button>
+            <Button variant="ghost" size="icon-sm" asChild>
+              <a
+                href={profile.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
+                <IconBrandFacebook className="h-4 w-4" />
               </a>
             </Button>
           </div>

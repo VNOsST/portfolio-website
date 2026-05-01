@@ -11,6 +11,7 @@ export {
   EntraIDIcon,
   AzureCosmosDbIcon,
   AzureAISearchIcon,
+  ACRIcon,
 } from "./azure"
 export { WebSocketIcon } from "./websocket"
 export { GitHubActionsIcon } from "./github-actions"

@@ -11,5 +11,6 @@ export const education: Array<Education> = [
     startDate: "Oct 2022",
     endDate: "Apr 2026",
     gpa: "3.7/4.0",
+    scholarsListImage: "Scholars List for Academic Excellence.webp",
   },
 ]

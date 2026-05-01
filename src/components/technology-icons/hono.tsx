@@ -1,5 +1,3 @@
-import { createSimpleIcon } from "./create-simple-icon"
-
 export const HonoIcon = ({ className }: { className?: string }) => {
   return (
     <svg
@@ -9,6 +7,7 @@ export const HonoIcon = ({ className }: { className?: string }) => {
       id="Hono--Streamline-Svg-Logos"
       height="24"
       width="24"
+      className={className}
     >
       <desc>Hono Streamline Icon: https://streamlinehq.com</desc>
       <path

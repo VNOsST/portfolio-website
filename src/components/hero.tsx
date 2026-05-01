@@ -1,5 +1,11 @@
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 import { NameToggle } from "@/components/name-toggle"
 import { profile } from "@/data/profile"
 import { buildImageUrl } from "@/lib/r2"
@@ -8,6 +14,7 @@ import {
   IconMail,
   IconBrandLinkedin,
   IconBrandGithub,
+  IconBrandFacebook,
 } from "@tabler/icons-react"
 
 export function Hero() {
@@ -41,34 +48,76 @@ export function Hero() {
             {profile.summary}
           </p>
 
-          <div className="flex flex-wrap gap-2">
-            <Button variant="outline" size="sm" asChild>
-              <a href={`mailto:${profile.email}`}>
-                <IconMail className="h-4 w-4 mr-1.5" />
-                Email
-              </a>
-            </Button>
-            <Button variant="outline" size="sm" asChild>
-              <a
-                href={profile.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <IconBrandLinkedin className="h-4 w-4 mr-1.5" />
-                LinkedIn
-              </a>
-            </Button>
-            <Button variant="outline" size="sm" asChild>
-              <a
-                href={profile.github}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <IconBrandGithub className="h-4 w-4 mr-1.5" />
-                GitHub
-              </a>
-            </Button>
-          </div>
+          <TooltipProvider>
+            <div className="flex flex-wrap gap-2">
+              <Tooltip>
+                <TooltipTrigger
+                  render={
+                    <Button variant="outline" size="icon-lg" asChild>
+                      <a href={`mailto:${profile.email}`} aria-label="Email">
+                        <IconMail className="h-6 w-6" />
+                      </a>
+                    </Button>
+                  }
+                />
+                <TooltipContent>Email</TooltipContent>
+              </Tooltip>
+
+              <Tooltip>
+                <TooltipTrigger
+                  render={
+                    <Button variant="outline" size="icon-lg" asChild>
+                      <a
+                        href={profile.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="LinkedIn"
+                      >
+                        <IconBrandLinkedin className="h-6 w-6" />
+                      </a>
+                    </Button>
+                  }
+                />
+                <TooltipContent>LinkedIn</TooltipContent>
+              </Tooltip>
+
+              <Tooltip>
+                <TooltipTrigger
+                  render={
+                    <Button variant="outline" size="icon-lg" asChild>
+                      <a
+                        href={profile.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="GitHub"
+                      >
+                        <IconBrandGithub className="h-6 w-6" />
+                      </a>
+                    </Button>
+                  }
+                />
+                <TooltipContent>GitHub</TooltipContent>
+              </Tooltip>
+
+              <Tooltip>
+                <TooltipTrigger
+                  render={
+                    <Button variant="outline" size="icon-lg" asChild>
+                      <a
+                        href={profile.facebook}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Facebook"
+                      >
+                        <IconBrandFacebook className="h-6 w-6" />
+                      </a>
+                    </Button>
+                  }
+                />
+                <TooltipContent>Facebook</TooltipContent>
+              </Tooltip>
+            </div>
+          </TooltipProvider>
         </div>
       </div>
     </section>

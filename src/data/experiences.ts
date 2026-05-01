@@ -26,7 +26,13 @@ export const experiences: Array<Experience> = [
       "supabase",
       "vitest",
     ],
-    // tags: ["CI/CD", "AI Tooling", "Security", "Rate Limiting"],
+    tags: [
+      "Full-Stack Development",
+      "Mobile Development",
+      "Platform Migration",
+      "Security Enhancements",
+      "Internal Tools",
+    ],
     // Uncomment and update after uploading images to R2:
     // thumbnail_image: "experiences/tuturuuu/tuturuuu-thumbnail.png",
     // images: [
@@ -49,6 +55,7 @@ export const experiences: Array<Experience> = [
       "Designed distributed system components using Redis Pub/Sub and WebSockets for real-time communication at scale.",
     ],
     technologies: [
+      "openai",
       "container-apps",
       "static-web-apps",
       "azure-devops",
@@ -57,6 +64,7 @@ export const experiences: Array<Experience> = [
       "entra-id",
       "azure-cosmosdb",
       "azure-ai-search",
+      "acr",
       "nextjs",
       "tailwindcss",
       "typescript",
@@ -64,7 +72,14 @@ export const experiences: Array<Experience> = [
       "fastapi",
       "docker",
     ],
-    // tags: ["Capstone", "Cloud-Native", "Distributed Systems"],
+    tags: [
+      "Capstone",
+      "Agentic AI",
+      "RAG",
+      "Cloud-Native",
+      "Distributed Systems",
+      "Human-in-the-Loop",
+    ],
     images: [
       { src: "experiences/nashtech/LeBon/LeBon_1.webp", alt: "LeBon Chat UI" },
       {

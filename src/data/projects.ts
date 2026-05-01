@@ -75,7 +75,7 @@ export const projects: Array<Project> = [
       "bun",
       "tanstackstart",
       "tailwindcss",
-      "typescript"
+      "typescript",
     ],
     tags: ["Serverless", "Microservices", "Event-Driven", "CI/CD"],
     thumbnail_image: "projects/cinecloud/CineCloud Thumbnail.webp",
@@ -83,6 +83,42 @@ export const projects: Array<Project> = [
       {
         src: "projects/cinecloud/CineCloud Architecture.webp",
         alt: "Architecture Diagram",
+      },
+      {
+        src: "projects/cinecloud/CineCloud_1.webp",
+        alt: "Backend Deployment Pipeline",
+      },
+      {
+        src: "projects/cinecloud/CineCloud_2.webp",
+        alt: "Frontend Deployment Pipeline",
+      },
+      {
+        src: "projects/cinecloud/CineCloud_3.webp",
+        alt: "Project CI Pipeline",
+      },
+      {
+        src: "projects/cinecloud/CineCloud_6.webp",
+        alt: "Website Home Page",
+      },
+      {
+        src: "projects/cinecloud/CineCloud_4.webp",
+        alt: "Movie Details Page",
+      },
+      {
+        src: "projects/cinecloud/CineCloud_7.webp",
+        alt: "Showtime Details Page",
+      },
+      {
+        src: "projects/cinecloud/CineCloud_8.webp",
+        alt: "Seat Selection Page",
+      },
+      {
+        src: "projects/cinecloud/CineCloud_5.webp",
+        alt: "Login & Registration Page with Cognito",
+      },
+      {
+        src: "projects/cinecloud/CineCloud_9.webp",
+        alt: "Email Integration with SNS for Admins",
       },
     ],
   },
@@ -102,8 +138,9 @@ export const projects: Array<Project> = [
       "Set up real-time monitoring and visualization with Prometheus and Grafana for system metrics and proactive troubleshooting.",
     ],
     technologies: [
-      "aws",
       "cloudformation",
+      "ecr",
+      "alb",
       "docker",
       "jenkins",
       "ansible",

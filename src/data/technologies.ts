@@ -8,6 +8,7 @@ import {
   IconBrandMongodb,
   IconBrandNextjs,
   IconBrandNodejs,
+  IconBrandOpenai,
   IconBrandPython,
   IconBrandReact,
   IconBrandSupabase,
@@ -89,13 +90,13 @@ export const technologies = {
     id: "elasticache",
     name: "ElastiCache",
     icon: TechnologyIcons.ElasticCacheIcon,
-    parentId: "aws",
+    parentId: ["aws", "redis"],
   },
   ecr: {
     id: "ecr",
     name: "ECR",
     icon: TechnologyIcons.ECRIcon,
-    parentId: "aws",
+    parentId: ["aws", "docker"],
   },
   alb: {
     id: "alb",
@@ -113,6 +114,7 @@ export const technologies = {
     id: "hono",
     name: "Hono",
     icon: TechnologyIcons.HonoIcon,
+    parentId: "nodejs",
   },
   tanstackstart: {
     id: "tanstackstart",
@@ -123,6 +125,7 @@ export const technologies = {
     id: "bun",
     name: "Bun",
     icon: TechnologyIcons.BunIcon,
+    parentId: "nodejs",
   },
   nextjs: {
     id: "nextjs",
@@ -138,6 +141,12 @@ export const technologies = {
   },
   flutter: { id: "flutter", name: "Flutter", icon: IconBrandFlutter },
   azure: { id: "azure", name: "Azure", icon: IconBrandAzure },
+  acr: {
+    id: "acr",
+    name: "Azure Container Registry",
+    icon: TechnologyIcons.ACRIcon,
+    parentId: ["azure", "docker"],
+  },
   "container-apps": {
     id: "container-apps",
     name: "Container Apps",
@@ -216,6 +225,11 @@ export const technologies = {
   },
   vitest: { id: "vitest", name: "Vitest", icon: TechnologyIcons.VitestIcon },
   cypress: { id: "cypress", name: "Cypress", icon: IconBrandCypress },
+  openai: {
+    id: "openai",
+    name: "OpenAI Agents SDK",
+    icon: IconBrandOpenai,
+  },
 } satisfies Record<string, Technology>
 
 export type TechnologyId = keyof typeof technologies
@@ -227,7 +241,12 @@ export function getTechnology(id: TechnologyId): Technology {
 export function getDescendants(id: TechnologyId): Array<TechnologyId> {
   const result: Array<TechnologyId> = []
   for (const tech of Object.values(technologies) as Array<Technology>) {
-    if (tech.parentId === id) {
+    const parentIds = Array.isArray(tech.parentId)
+      ? tech.parentId
+      : tech.parentId
+        ? [tech.parentId]
+        : []
+    if (parentIds.includes(id)) {
       result.push(tech.id as TechnologyId)
       result.push(...getDescendants(tech.id as TechnologyId))
     }

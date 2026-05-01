@@ -1,5 +1,3 @@
-import { createSimpleIcon } from "./create-simple-icon"
-
 export function LambdaIcon({ className }: { className?: string }) {
   return (
     <svg

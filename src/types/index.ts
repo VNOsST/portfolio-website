@@ -12,6 +12,7 @@ export interface Profile {
   email: string
   linkedin: string
   github: string
+  facebook: string
   summary: string
   avatar?: string
 }
@@ -62,4 +63,5 @@ export interface Education {
   startDate: string
   endDate: string
   gpa?: string
+  scholarsListImage?: string
 }

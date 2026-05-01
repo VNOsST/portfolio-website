@@ -12,7 +12,6 @@ import {
 } from "@/components/ui/carousel"
 import { ImageLightbox } from "@/components/ui/image-lightbox"
 import { TechnologyBadge } from "@/components/technology-badge"
-import { BadgeScrollRow } from "@/components/badge-scroll-row"
 import { buildImageUrl } from "@/lib/r2"
 import {
   IconBrandGithub,
@@ -156,11 +155,11 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
 
       <div className="space-y-3">
         <h2 className="text-lg font-semibold">Technologies</h2>
-        <BadgeScrollRow>
+        <div className="flex flex-wrap gap-2">
           {project.technologies.map((techId) => (
             <TechnologyBadge key={techId} id={techId} />
           ))}
-        </BadgeScrollRow>
+        </div>
       </div>
 
       <div className="space-y-3">

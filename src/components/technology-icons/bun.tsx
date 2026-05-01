@@ -1,5 +1,3 @@
-import { createSimpleIcon } from "./create-simple-icon"
-
 export const BunIcon = ({ className }: { className?: string }) => {
   return (
     <svg
@@ -9,6 +7,7 @@ export const BunIcon = ({ className }: { className?: string }) => {
       id="Bun--Streamline-Svg-Logos"
       height="24"
       width="24"
+      className={className}
     >
       <desc>Bun Streamline Icon: https://streamlinehq.com</desc>
       <path

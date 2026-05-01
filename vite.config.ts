@@ -2,17 +2,11 @@ import { defineConfig } from "vite"
 import { devtools } from "@tanstack/devtools-vite"
 import { tanstackRouter } from "@tanstack/router-plugin/vite"
 import viteReact from "@vitejs/plugin-react"
-import viteTsConfigPaths from "vite-tsconfig-paths"
 import tailwindcss from "@tailwindcss/vite"
 
 export default defineConfig({
-  plugins: [
-    devtools(),
-    tanstackRouter(),
-    viteTsConfigPaths({
-      projects: ["./tsconfig.json"],
-    }),
-    tailwindcss(),
-    viteReact(),
-  ],
+  resolve: {
+    tsconfigPaths: true,
+  },
+  plugins: [devtools(), tanstackRouter(), tailwindcss(), viteReact()],
 })
