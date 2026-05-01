@@ -15,7 +15,20 @@ const config = defineConfig({
       projects: ["./tsconfig.json"],
     }),
     tailwindcss(),
-    tanstackStart(),
+    tanstackStart({
+      prerender: {
+        enabled: true,
+        autoSubfolderIndex: true,
+        autoStaticPathsDiscovery: true,
+        crawlLinks: true,
+        failOnError: true,
+      },
+      pages: [
+        { path: "/experiences/tuturuuu" },
+        { path: "/experiences/nashtech" },
+        { path: "/projects/cinecloud" },
+      ],
+    }),
     viteReact(),
   ],
 })
