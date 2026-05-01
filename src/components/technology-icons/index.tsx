@@ -27,12 +27,9 @@ export {
   S3Icon,
   SQSIcon,
   SNSIcon,
-  ElastiCacheIcon,
-  VPCIcon,
-  IAMIcon,
-  CloudWatchIcon,
   ECRIcon,
   ALBIcon,
+  ElasticCacheIcon,
 } from "./aws"
 export { NashTechIcon } from "./nash-tech"
 export { RmitIcon } from "./rmit"

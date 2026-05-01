@@ -68,18 +68,16 @@ export const projects: Array<Project> = [
       "sqs",
       "sns",
       "elasticache",
-      "vpc",
-      "iam",
-      "cloudwatch",
       "ssm",
       "docker",
       "github-actions",
       "hono",
-      "tanstackstart",
       "bun",
+      "tanstackstart",
+      "tailwindcss",
+      "typescript"
     ],
     tags: ["Serverless", "Microservices", "Event-Driven", "CI/CD"],
-    // Uncomment and update after uploading images to R2:
     thumbnail_image: "projects/cinecloud/CineCloud Thumbnail.webp",
     images: [
       {
@@ -112,7 +110,6 @@ export const projects: Array<Project> = [
       "cypress",
       "mongodb",
       "nodejs",
-      "react",
     ],
     thumbnail_image: "projects/rmitstore/RMITStoreThumbnail.webp",
     images: [

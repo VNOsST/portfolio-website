@@ -27,7 +27,7 @@ export const technologies = {
   aws: { id: "aws", name: "AWS", icon: IconBrandAws },
   lambda: {
     id: "lambda",
-    name: "AWS Lambda",
+    name: "Lambda",
     icon: TechnologyIcons.LambdaIcon,
     parentId: "aws",
   },
@@ -88,25 +88,7 @@ export const technologies = {
   elasticache: {
     id: "elasticache",
     name: "ElastiCache",
-    icon: TechnologyIcons.ElastiCacheIcon,
-    parentId: "aws",
-  },
-  vpc: {
-    id: "vpc",
-    name: "VPC",
-    icon: TechnologyIcons.VPCIcon,
-    parentId: "aws",
-  },
-  iam: {
-    id: "iam",
-    name: "IAM",
-    icon: TechnologyIcons.IAMIcon,
-    parentId: "aws",
-  },
-  cloudwatch: {
-    id: "cloudwatch",
-    name: "CloudWatch",
-    icon: TechnologyIcons.CloudWatchIcon,
+    icon: TechnologyIcons.ElasticCacheIcon,
     parentId: "aws",
   },
   ecr: {
