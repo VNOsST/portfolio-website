@@ -83,19 +83,31 @@ function EducationCard({ edu }: { edu: Education }) {
   )
 }
 
-export function EducationSection() {
+export function EducationSection({ compact }: { compact?: boolean }) {
+  const content = (
+    <>
+      <h2
+        className={
+          compact
+            ? "text-xl sm:text-2xl font-bold tracking-tight"
+            : "text-xl sm:text-2xl font-bold tracking-tight mb-8"
+        }
+      >
+        Education
+      </h2>
+      <div className="flex flex-col gap-4">
+        {education.map((edu, idx) => (
+          <EducationCard key={idx} edu={edu} />
+        ))}
+      </div>
+    </>
+  )
+
+  if (compact) return content
+
   return (
     <section id="education" className="scroll-mt-16 py-12 sm:py-16">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-8">
-          Education
-        </h2>
-        <div className="flex flex-col gap-4">
-          {education.map((edu, idx) => (
-            <EducationCard key={idx} edu={edu} />
-          ))}
-        </div>
-      </div>
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">{content}</div>
     </section>
   )
 }

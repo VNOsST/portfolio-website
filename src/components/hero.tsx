@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
@@ -47,6 +48,27 @@ export function Hero() {
           <p className="text-base sm:text-lg leading-relaxed text-muted-foreground max-w-3xl">
             {profile.summary}
           </p>
+
+          <div className="pt-2">
+            <Button variant="default" asChild>
+              <Link to="/about">
+                More about me
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4 ml-1"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </Link>
+            </Button>
+          </div>
 
           <TooltipProvider>
             <div className="flex flex-wrap gap-2">

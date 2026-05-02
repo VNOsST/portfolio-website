@@ -1,5 +1,6 @@
 import type { ComponentType } from "react"
 import type { TechnologyId } from "@/data/technologies"
+import type { MusicPlatformId } from "@/data/music-platforms"
 export type { TechnologyId }
 
 export interface Profile {
@@ -13,6 +14,9 @@ export interface Profile {
   linkedin: string
   github: string
   facebook: string
+  discord: string
+  spotify: string
+  steam: string
   summary: string
   avatar?: string
 }
@@ -65,3 +69,24 @@ export interface Education {
   gpa?: string
   scholarsListImage?: string
 }
+
+export interface Artist {
+  id: string
+  name: string
+  icon: ComponentType<{ className?: string }>
+  platforms: Array<{ platform: MusicPlatformId; url: string }>
+}
+
+export interface Sport {
+  id: string
+  name: string
+  icon: ComponentType<{ className?: string; variant?: string }> | null
+}
+
+export interface Games {
+  id: string
+  name: string
+  icon: ComponentType<{ className?: string; variant?: string }> | null
+}
+
+export type TabValue = "professional" | "personal"

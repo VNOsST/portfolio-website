@@ -1,0 +1,7 @@
+export { tripleSIcon } from "./tripleS"
+export { TwentyOnePilotsIcon } from "./twentyonepilots"
+export { TwiceIcon } from "./twice"
+export { chelseaIcon } from "./chelsea"
+export { F1Icon } from "./f1"
+export { NBAIcon } from "./nba"
+export { R6Icon } from "./r6"

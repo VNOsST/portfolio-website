@@ -5,10 +5,19 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { ModeToggle } from "@/components/mode-toggle"
 import { IconMenu } from "@tabler/icons-react"
 
-const sectionLinks = [
+type NavLink =
+  | { label: string; to: string; hash?: never }
+  | { label: string; to?: never; hash: string }
+
+const navLinks: Array<NavLink> = [
+  { label: "About", to: "/about" },
+  { label: "Work", to: "/work" },
   { label: "Skills", hash: "skills" },
   { label: "Education", hash: "education" },
 ]
+
+const linkClass =
+  "px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-accent"
 
 export function Navbar() {
   const navigate = useNavigate()
@@ -31,7 +40,7 @@ export function Navbar() {
     }
   }
 
-  const handleClick = (
+  const handleHashClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     hash: string
   ) => {
@@ -43,6 +52,31 @@ export function Navbar() {
       navigate({ to: "/", hash })
       setTimeout(() => scrollToHash(hash), 100)
     }
+  }
+
+  const renderLink = (link: NavLink, mobile = false) => {
+    if ("to" in link) {
+      return (
+        <Link
+          key={link.to}
+          to={link.to}
+          onClick={() => mobile && setMobileOpen(false)}
+          className={linkClass}
+        >
+          {link.label}
+        </Link>
+      )
+    }
+    return (
+      <a
+        key={link.hash}
+        href={`/#${link.hash}`}
+        onClick={(e) => handleHashClick(e, link.hash)}
+        className={linkClass}
+      >
+        {link.label}
+      </a>
+    )
   }
 
   return (
@@ -57,7 +91,7 @@ export function Navbar() {
         <nav className="flex h-14 items-center justify-between">
           <a
             href="/#about"
-            onClick={(e) => handleClick(e, "about")}
+            onClick={(e) => handleHashClick(e, "about")}
             className="hover:opacity-80 transition-opacity"
           >
             <img src="/favicon-32x32.png" alt="Home" className="h-6 w-6" />
@@ -65,22 +99,7 @@ export function Navbar() {
 
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-1">
-            <Link
-              to="/work"
-              className="px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-accent"
-            >
-              Work
-            </Link>
-            {sectionLinks.map((link) => (
-              <a
-                key={link.hash}
-                href={`/#${link.hash}`}
-                onClick={(e) => handleClick(e, link.hash)}
-                className="px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-accent"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => renderLink(link))}
           </div>
 
           <div className="flex items-center gap-1">
@@ -95,23 +114,7 @@ export function Navbar() {
               </SheetTrigger>
               <SheetContent side="top" className="w-full">
                 <div className="flex flex-col gap-2 mt-4">
-                  <Link
-                    to="/work"
-                    onClick={() => setMobileOpen(false)}
-                    className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition-colors"
-                  >
-                    Work
-                  </Link>
-                  {sectionLinks.map((link) => (
-                    <a
-                      key={link.hash}
-                      href={`/#${link.hash}`}
-                      onClick={(e) => handleClick(e, link.hash)}
-                      className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition-colors"
-                    >
-                      {link.label}
-                    </a>
-                  ))}
+                  {navLinks.map((link) => renderLink(link, true))}
                 </div>
               </SheetContent>
             </Sheet>
