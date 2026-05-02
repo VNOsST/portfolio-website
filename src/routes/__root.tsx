@@ -1,7 +1,9 @@
 import { createRootRoute, Outlet } from "@tanstack/react-router"
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools"
 import { TanStackDevtools } from "@tanstack/react-devtools"
+import { QueryClientProvider } from "@tanstack/react-query"
 import { ThemeProvider } from "@/components/theme-provider"
+import { queryClient } from "@/lib/query-client"
 
 export const Route = createRootRoute({
   notFoundComponent: () => (
@@ -15,19 +17,21 @@ export const Route = createRootRoute({
 
 function RootComponent() {
   return (
-    <ThemeProvider defaultTheme="system" storageKey="portfolio-theme">
-      <Outlet />
-      <TanStackDevtools
-        config={{
-          position: "bottom-right",
-        }}
-        plugins={[
-          {
-            name: "Tanstack Router",
-            render: <TanStackRouterDevtoolsPanel />,
-          },
-        ]}
-      />
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider defaultTheme="system" storageKey="portfolio-theme">
+        <Outlet />
+        <TanStackDevtools
+          config={{
+            position: "bottom-right",
+          }}
+          plugins={[
+            {
+              name: "Tanstack Router",
+              render: <TanStackRouterDevtoolsPanel />,
+            },
+          ]}
+        />
+      </ThemeProvider>
+    </QueryClientProvider>
   )
 }
