@@ -217,29 +217,31 @@ export function AboutMe() {
           onValueChange={(value) => setActiveTab(value as TabValue)}
           className="w-full"
         >
-          <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-8 mb-6">
-            <div className="flex flex-col gap-8">
-              <div className="flex flex-col items-center gap-5 sm:flex-row sm:items-center">
-                <Avatar className="h-28 w-28 sm:h-20 sm:w-20 border border-border shrink-0">
-                  <AvatarImage
-                    src={buildImageUrl(TAB_AVATARS[activeTab])}
-                    alt={profile.name}
-                    className="object-cover"
-                  />
-                  <AvatarFallback className="text-xl sm:text-lg font-semibold bg-primary text-primary-foreground">
-                    {profile.initials}
-                  </AvatarFallback>
-                </Avatar>
-                <div className="flex flex-col gap-1.5 text-center sm:text-left">
-                  <h1 className="text-2xl font-bold tracking-tight">
-                    About Me
-                  </h1>
-                  <p className="text-base text-muted-foreground">
-                    {activeTab === "professional"
-                      ? "A glimpse into what I do"
-                      : "A glimpse of what I enjoy"}
-                  </p>
+          <div className="flex flex-col gap-8 mb-6">
+            <div className="flex flex-col items-center gap-5 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex flex-col items-center gap-5 sm:flex-row sm:items-center">
+                  <Avatar className="h-28 w-28 sm:h-20 sm:w-20 border border-border shrink-0">
+                    <AvatarImage
+                      src={buildImageUrl(TAB_AVATARS[activeTab])}
+                      alt={profile.name}
+                      className="object-cover"
+                    />
+                    <AvatarFallback className="text-xl sm:text-lg font-semibold bg-primary text-primary-foreground">
+                      {profile.initials}
+                    </AvatarFallback>
+                  </Avatar>
+                  <div className="flex flex-col gap-1.5 text-center sm:text-left">
+                    <h1 className="text-2xl font-bold tracking-tight">
+                      About Me
+                    </h1>
+                    <p className="text-base text-muted-foreground">
+                      {activeTab === "professional"
+                        ? "A glimpse into what I do"
+                        : "A glimpse of what I enjoy"}
+                    </p>
+                  </div>
                 </div>
+                {activeTab === "personal" && <SpotifyActivity />}
               </div>
 
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
@@ -317,13 +319,6 @@ export function AboutMe() {
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
-            </div>
-
-            {activeTab === "personal" && (
-              <div className="flex items-start justify-center sm:justify-end">
-                <SpotifyActivity />
-              </div>
-            )}
           </div>
           <TabsContent value="professional">
             <ProfessionalSection />
