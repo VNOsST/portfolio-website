@@ -74,10 +74,11 @@ export default {
     const cached = await cache.match(cacheKey)
     if (cached) {
       const cachedHeaders = new Headers(cached.headers)
-      // Strip old CORS headers so we can add fresh ones for this request's Origin
+      // Strip headers that should reflect the current response, not the cached one
       cachedHeaders.delete("Access-Control-Allow-Origin")
       cachedHeaders.delete("Access-Control-Allow-Methods")
       cachedHeaders.delete("Access-Control-Allow-Headers")
+      cachedHeaders.delete("X-Cache")
 
       const response = new Response(cached.body, {
         status: cached.status,
