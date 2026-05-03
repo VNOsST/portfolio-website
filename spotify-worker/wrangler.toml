@@ -8,6 +8,21 @@ preview_urls = false
 pattern = "spotify.samton.dev"
 custom_domain = true
 
+[observability]
+enabled = false
+head_sampling_rate = 1
+
+[observability.logs]
+enabled = true
+head_sampling_rate = 1
+persist = true
+invocation_logs = true
+
+[observability.traces]
+enabled = false
+persist = true
+head_sampling_rate = 1
+
 [vars]
 # Comma-separated list of allowed frontend origins for CORS
 CLIENT_ORIGIN = "https://samton.dev, http://localhost:3000"

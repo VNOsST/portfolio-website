@@ -2,22 +2,38 @@ import { useState, useEffect } from "react"
 import { Link, useNavigate, useLocation } from "@tanstack/react-router"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { ModeToggle } from "@/components/mode-toggle"
-import { IconMenu } from "@tabler/icons-react"
+import { NameToggle } from "@/components/name-toggle"
+import { profile } from "@/data/profile"
+import { buildImageUrl } from "@/lib/r2"
+import {
+  IconMenu,
+  IconUser,
+  IconBriefcase,
+  IconSchool,
+  IconMapPin,
+} from "@tabler/icons-react"
 
 type NavLink =
-  | { label: string; to: string; hash?: never }
-  | { label: string; to?: never; hash: string }
+  | { label: string; to: string; hash?: never; icon: React.ReactNode }
+  | { label: string; to?: never; hash: string; icon: React.ReactNode }
 
 const navLinks: Array<NavLink> = [
-  { label: "About", to: "/about" },
-  { label: "Work", to: "/work" },
-  { label: "Skills", hash: "skills" },
-  { label: "Education", hash: "education" },
+  { label: "About", to: "/about", icon: <IconUser className="h-4 w-4" /> },
+  { label: "Work", to: "/work", icon: <IconBriefcase className="h-4 w-4" /> },
+  {
+    label: "Education",
+    hash: "education",
+    icon: <IconSchool className="h-4 w-4" />,
+  },
 ]
 
 const linkClass =
   "px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-accent"
+
+const mobileLinkClass =
+  "flex items-center gap-3 px-4 py-3 text-base font-medium text-foreground hover:text-primary transition-colors rounded-lg hover:bg-accent"
 
 export function Navbar() {
   const navigate = useNavigate()
@@ -61,8 +77,9 @@ export function Navbar() {
           key={link.to}
           to={link.to}
           onClick={() => mobile && setMobileOpen(false)}
-          className={linkClass}
+          className={mobile ? mobileLinkClass : linkClass}
         >
+          {mobile && link.icon}
           {link.label}
         </Link>
       )
@@ -72,8 +89,9 @@ export function Navbar() {
         key={link.hash}
         href={`/#${link.hash}`}
         onClick={(e) => handleHashClick(e, link.hash)}
-        className={linkClass}
+        className={mobile ? mobileLinkClass : linkClass}
       >
+        {mobile && link.icon}
         {link.label}
       </a>
     )
@@ -113,8 +131,32 @@ export function Navbar() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="top" className="w-full">
-                <div className="flex flex-col gap-2 mt-4">
-                  {navLinks.map((link) => renderLink(link, true))}
+                <div className="flex flex-col gap-6 pt-12 pb-2">
+                  {/* Profile header */}
+                  {/* <div className="flex items-center gap-3 px-4">
+                    <Avatar className="h-12 w-12 border border-border">
+                      <AvatarImage
+                        src={buildImageUrl(profile.avatar!)}
+                        alt={profile.name}
+                        className="object-cover"
+                      />
+                      <AvatarFallback className="text-sm font-semibold bg-primary text-primary-foreground">
+                        {profile.initials}
+                      </AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <NameToggle />
+                      <div className="flex items-center gap-1 text-xs text-muted-foreground mt-0.5">
+                        <IconMapPin className="h-3 w-3" />
+                        {profile.location}
+                      </div>
+                    </div>
+                  </div> */}
+
+                  {/* Nav links */}
+                  <div className="flex flex-col gap-1">
+                    {navLinks.map((link) => renderLink(link, true))}
+                  </div>
                 </div>
               </SheetContent>
             </Sheet>

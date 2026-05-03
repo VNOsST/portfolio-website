@@ -25,6 +25,7 @@ export const experiences: Array<Experience> = [
       "flutter",
       "supabase",
       "vitest",
+      "bun",
     ],
     tags: [
       "Full-Stack Development",
@@ -71,6 +72,7 @@ export const experiences: Array<Experience> = [
       "python",
       "fastapi",
       "docker",
+      "bun",
     ],
     tags: [
       "Capstone",

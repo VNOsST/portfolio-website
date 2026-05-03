@@ -4,6 +4,7 @@ import { TanStackDevtools } from "@tanstack/react-devtools"
 import { QueryClientProvider } from "@tanstack/react-query"
 import { ThemeProvider } from "@/components/theme-provider"
 import { queryClient } from "@/lib/query-client"
+import { NuqsAdapter } from "nuqs/adapters/tanstack-router"
 
 export const Route = createRootRoute({
   notFoundComponent: () => (
@@ -19,7 +20,9 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider defaultTheme="system" storageKey="portfolio-theme">
-        <Outlet />
+        <NuqsAdapter>
+          <Outlet />
+        </NuqsAdapter>
         <TanStackDevtools
           config={{
             position: "bottom-right",

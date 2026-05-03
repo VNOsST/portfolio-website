@@ -1,4 +1,6 @@
-import { useMemo, useState } from "react"
+import { useMemo } from "react"
+import { useLocation, useNavigate } from "@tanstack/react-router"
+import { useQueryState, parseAsArrayOf, parseAsStringLiteral } from "nuqs"
 import { ExperienceSection } from "@/components/experience"
 import { ProjectsSection } from "@/components/projects"
 import { TechnologyFilter } from "@/components/technology-filter"
@@ -11,6 +13,10 @@ import {
 } from "@/data/technologies"
 import type { TechnologyId } from "@/types"
 
+const technologiesParser = parseAsArrayOf(
+  parseAsStringLiteral(getAllTechnologyIds() as ReadonlyArray<TechnologyId>)
+).withDefault([])
+
 export function WorkSections({
   showFilter = true,
   limit,
@@ -18,12 +24,27 @@ export function WorkSections({
   showFilter?: boolean
   limit?: number
 }) {
-  const [activeFilters, setActiveFilters] = useState<Array<TechnologyId>>([])
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const [activeFilters, setActiveFiltersRaw] = useQueryState(
+    "tech",
+    technologiesParser
+  )
 
   const allTechIds = useMemo(() => getAllTechnologyIds(), [])
 
+  function setActiveFilters(value: Array<TechnologyId>) {
+    setActiveFiltersRaw(value)
+  }
+
   function toggleFilter(id: TechnologyId) {
-    setActiveFilters((prev) =>
+    if (location.pathname !== "/work") {
+      navigate({ to: "/work", search: { tech: id } })
+      return
+    }
+
+    setActiveFiltersRaw((prev) =>
       prev.includes(id) ? prev.filter((v) => v !== id) : [...prev, id]
     )
   }

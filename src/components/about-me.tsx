@@ -219,106 +219,106 @@ export function AboutMe() {
         >
           <div className="flex flex-col gap-8 mb-6">
             <div className="flex flex-col items-center gap-5 sm:flex-row sm:items-center sm:justify-between">
-                <div className="flex flex-col items-center gap-5 sm:flex-row sm:items-center">
-                  <Avatar className="h-28 w-28 sm:h-20 sm:w-20 border border-border shrink-0">
-                    <AvatarImage
-                      src={buildImageUrl(TAB_AVATARS[activeTab])}
-                      alt={profile.name}
-                      className="object-cover"
-                    />
-                    <AvatarFallback className="text-xl sm:text-lg font-semibold bg-primary text-primary-foreground">
-                      {profile.initials}
-                    </AvatarFallback>
-                  </Avatar>
-                  <div className="flex flex-col gap-1.5 text-center sm:text-left">
-                    <h1 className="text-2xl font-bold tracking-tight">
-                      About Me
-                    </h1>
-                    <p className="text-base text-muted-foreground">
-                      {activeTab === "professional"
-                        ? "A glimpse into what I do"
-                        : "A glimpse of what I enjoy"}
-                    </p>
-                  </div>
-                </div>
-                {activeTab === "personal" && <SpotifyActivity />}
-              </div>
-
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <TabsList className="w-full sm:w-fit">
-                  <TabsTrigger value="professional">
-                    <IconBriefcase className="h-4 w-4" />
-                    Professional
-                  </TabsTrigger>
-                  <TabsTrigger value="personal">
-                    <IconUser className="h-4 w-4" />
-                    Personal
-                  </TabsTrigger>
-                </TabsList>
-
-                <DropdownMenu>
-                  <DropdownMenuTrigger
-                    render={
-                      <Button variant="outline" size="sm">
-                        <IconLinkPlus className="h-4 w-4" />
-                        Connect with me
-                        <IconChevronDown className="h-3 w-3" />
-                      </Button>
-                    }
+              <div className="flex flex-col items-center gap-5 sm:flex-row sm:items-center">
+                <Avatar className="h-28 w-28 sm:h-20 sm:w-20 border border-border shrink-0">
+                  <AvatarImage
+                    src={buildImageUrl(TAB_AVATARS[activeTab])}
+                    alt={profile.name}
+                    className="object-cover"
                   />
-                  <DropdownMenuContent align="end">
-                    {activeTab === "professional" ? (
-                      <>
-                        <DropdownMenuItem>
-                          <a
-                            href={profile.linkedin}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-2.5 w-full cursor-pointer"
-                          >
-                            <IconBrandLinkedin className="h-4 w-4" />
-                            LinkedIn
-                          </a>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>
-                          <a
-                            href={`mailto:${profile.email}`}
-                            className="flex items-center gap-2.5 w-full cursor-pointer"
-                          >
-                            <IconMail className="h-4 w-4" />
-                            Email
-                          </a>
-                        </DropdownMenuItem>
-                      </>
-                    ) : (
-                      <>
-                        <DropdownMenuItem>
-                          <a
-                            href={profile.facebook}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-2.5 w-full cursor-pointer"
-                          >
-                            <IconBrandFacebook className="h-4 w-4" />
-                            Facebook
-                          </a>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>
-                          <a
-                            href={profile.discord}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-2.5 w-full cursor-pointer"
-                          >
-                            <IconBrandDiscord className="h-4 w-4" />
-                            Discord
-                          </a>
-                        </DropdownMenuItem>
-                      </>
-                    )}
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                  <AvatarFallback className="text-xl sm:text-lg font-semibold bg-primary text-primary-foreground">
+                    {profile.initials}
+                  </AvatarFallback>
+                </Avatar>
+                <div className="flex flex-col gap-1.5 text-center sm:text-left">
+                  <h1 className="text-2xl font-bold tracking-tight">
+                    About Me
+                  </h1>
+                  <p className="text-base text-muted-foreground">
+                    {activeTab === "professional"
+                      ? "A glimpse into what I do"
+                      : "A glimpse of what I enjoy"}
+                  </p>
+                </div>
               </div>
+              {activeTab === "personal" && <SpotifyActivity />}
+            </div>
+
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <TabsList className="w-full sm:w-fit">
+                <TabsTrigger value="professional">
+                  <IconBriefcase className="h-4 w-4" />
+                  Professional
+                </TabsTrigger>
+                <TabsTrigger value="personal">
+                  <IconUser className="h-4 w-4" />
+                  Personal
+                </TabsTrigger>
+              </TabsList>
+
+              <DropdownMenu>
+                <DropdownMenuTrigger
+                  render={
+                    <Button variant="outline" size="sm">
+                      <IconLinkPlus className="h-4 w-4" />
+                      Connect with me
+                      <IconChevronDown className="h-3 w-3" />
+                    </Button>
+                  }
+                />
+                <DropdownMenuContent align="end">
+                  {activeTab === "professional" ? (
+                    <>
+                      <DropdownMenuItem>
+                        <a
+                          href={profile.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2.5 w-full cursor-pointer"
+                        >
+                          <IconBrandLinkedin className="h-4 w-4" />
+                          LinkedIn
+                        </a>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem>
+                        <a
+                          href={`mailto:${profile.email}`}
+                          className="flex items-center gap-2.5 w-full cursor-pointer"
+                        >
+                          <IconMail className="h-4 w-4" />
+                          Email
+                        </a>
+                      </DropdownMenuItem>
+                    </>
+                  ) : (
+                    <>
+                      <DropdownMenuItem>
+                        <a
+                          href={profile.facebook}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2.5 w-full cursor-pointer"
+                        >
+                          <IconBrandFacebook className="h-4 w-4" />
+                          Facebook
+                        </a>
+                      </DropdownMenuItem>
+                      <DropdownMenuItem>
+                        <a
+                          href={profile.discord}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2.5 w-full cursor-pointer"
+                        >
+                          <IconBrandDiscord className="h-4 w-4" />
+                          Discord
+                        </a>
+                      </DropdownMenuItem>
+                    </>
+                  )}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
           </div>
           <TabsContent value="professional">
             <ProfessionalSection />

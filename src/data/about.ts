@@ -1,11 +1,19 @@
-import * as PersonalIcons from "@/components/icons"
+import {
+  tripleSIcon,
+  TwentyOnePilotsIcon,
+  TwiceIcon,
+  chelseaIcon,
+  F1Icon,
+  NBAIcon,
+  R6Icon,
+} from "@/components/icons"
 import type { Artist, Sport, Games, TabValue } from "@/types"
 
 export const artists: Array<Artist> = [
   {
     id: "triples",
     name: "tripleS",
-    icon: PersonalIcons.tripleSIcon,
+    icon: tripleSIcon,
     platforms: [
       { platform: "youtube", url: "https://www.youtube.com/@triplescosmos" },
       {
@@ -17,7 +25,7 @@ export const artists: Array<Artist> = [
   {
     id: "twenty-one-pilots",
     name: "Twenty One Pilots",
-    icon: PersonalIcons.TwentyOnePilotsIcon,
+    icon: TwentyOnePilotsIcon,
     platforms: [
       { platform: "youtube", url: "https://www.youtube.com/@twentyonepilots" },
       {
@@ -29,7 +37,7 @@ export const artists: Array<Artist> = [
   {
     id: "twice",
     name: "TWICE",
-    icon: PersonalIcons.TwiceIcon,
+    icon: TwiceIcon,
     platforms: [
       { platform: "youtube", url: "https://www.youtube.com/@TWICE" },
       {
@@ -44,26 +52,26 @@ export const sports: Array<Sport> = [
   {
     id: "chelsea",
     name: "Chelsea FC",
-    icon: PersonalIcons.chelseaIcon,
+    icon: chelseaIcon,
   },
   {
     id: "f1",
     name: "Formula 1",
-    icon: (props) => PersonalIcons.F1Icon({ ...props, variant: "colored" }),
+    icon: (props) => F1Icon({ ...props, variant: "colored" }),
   },
   {
     id: "nba",
     name: "NBA",
-    icon: PersonalIcons.NBAIcon,
+    icon: NBAIcon,
   },
 ]
 
 export const gameLinks: Array<Games> = [
-  { id: "r6", name: "Rainbow Six Siege", icon: PersonalIcons.R6Icon },
+  { id: "r6", name: "Rainbow Six Siege", icon: R6Icon },
   {
     id: "f1",
     name: "F1 25",
-    icon: (props) => PersonalIcons.F1Icon({ ...props, variant: "monochrome" }),
+    icon: (props) => F1Icon({ ...props, variant: "monochrome" }),
   },
 ]
 

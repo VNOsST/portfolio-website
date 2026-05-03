@@ -1,7 +1,15 @@
+import { useNavigate } from "@tanstack/react-router"
 import { TechnologyBadge } from "@/components/technology-badge"
 import { skills } from "@/data/skills"
+import type { TechnologyId } from "@/types"
 
 export function SkillsSection({ compact }: { compact?: boolean }) {
+  const navigate = useNavigate()
+
+  function handleSkillClick(id: TechnologyId) {
+    navigate({ to: "/work", search: { tech: id } })
+  }
+
   const content = (
     <>
       <h2
@@ -24,7 +32,11 @@ export function SkillsSection({ compact }: { compact?: boolean }) {
             </h3>
             <div className="flex flex-wrap gap-2">
               {category.skills.map((skill) => (
-                <TechnologyBadge key={skill} id={skill} />
+                <TechnologyBadge
+                  key={skill}
+                  id={skill}
+                  onClick={() => handleSkillClick(skill)}
+                />
               ))}
             </div>
           </div>

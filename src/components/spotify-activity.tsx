@@ -1,5 +1,5 @@
 import { useSpotifyActivity } from "@/hooks/use-spotify"
-import { IconBrandSpotify, IconBrandSpotifyFilled } from "@tabler/icons-react"
+import { IconBrandSpotifyFilled } from "@tabler/icons-react"
 
 function SpotifySkeleton() {
   return (
