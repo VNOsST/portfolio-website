@@ -67,6 +67,13 @@ export default {
       return new Response(null, { headers: corsHeaders })
     }
 
+    const url = new URL(request.url)
+
+    // Only handle expected API path(s)
+    if (url.pathname !== "/") {
+      return new Response("Not Found", { status: 404 })
+    }
+
     const cache = caches.default
     const cacheKey = new Request(request.url)
 
@@ -156,18 +163,13 @@ export default {
         },
       })
 
-      // Strip CORS headers from the cached clone so future requests get Origin-specific headers
-      const cacheResponse = new Response(response.body, {
-        status: response.status,
-        statusText: response.statusText,
-        headers: {
-          "Content-Type": "application/json",
-          "Cache-Control": `public, max-age=${CACHE_TTL_SECONDS}`,
-          "X-Cache": "MISS",
-        },
-      })
+      // Clone the response for caching and strip CORS headers so future requests
+      // get Origin-specific headers from resolveOrigin()
+      const cacheResponse = response.clone()
+      cacheResponse.headers.delete("Access-Control-Allow-Origin")
+      cacheResponse.headers.delete("Access-Control-Allow-Methods")
+      cacheResponse.headers.delete("Access-Control-Allow-Headers")
 
-      // Store in Cloudflare cache (clone because Response body can only be read once)
       ctx.waitUntil(cache.put(cacheKey, cacheResponse))
 
       return response
