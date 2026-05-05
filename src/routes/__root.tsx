@@ -3,6 +3,7 @@ import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools"
 import { TanStackDevtools } from "@tanstack/react-devtools"
 import { QueryClientProvider } from "@tanstack/react-query"
 import { ThemeProvider } from "@/components/theme-provider"
+import { AuralisSiteBackground } from "@/components/forgeui/auralis-site-background"
 import { queryClient } from "@/lib/query-client"
 import { NuqsAdapter } from "nuqs/adapters/tanstack-router"
 
@@ -21,7 +22,10 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider defaultTheme="system" storageKey="portfolio-theme">
         <NuqsAdapter>
-          <Outlet />
+          <AuralisSiteBackground />
+          <div className="relative z-10">
+            <Outlet />
+          </div>
         </NuqsAdapter>
         <TanStackDevtools
           config={{

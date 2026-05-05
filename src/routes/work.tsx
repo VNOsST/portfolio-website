@@ -9,7 +9,7 @@ export const Route = createFileRoute("/work")({
 
 function WorkPage() {
   return (
-    <div className="min-h-svh bg-background text-foreground">
+    <div className="min-h-svh bg-background/88 text-foreground">
       <Navbar />
       <main className="pt-14">
         <WorkSections />

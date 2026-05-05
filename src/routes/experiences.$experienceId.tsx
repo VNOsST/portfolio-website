@@ -18,7 +18,7 @@ function ExperienceDetailPage() {
   const { experience } = Route.useLoaderData()
 
   return (
-    <div className="min-h-svh bg-background text-foreground">
+    <div className="min-h-svh bg-background/88 text-foreground">
       <Navbar />
       <main className="pt-14">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 py-8 sm:py-12">
