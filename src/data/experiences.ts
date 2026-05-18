@@ -1,8 +1,22 @@
 import type { Experience } from "@/types"
 import { NashTechIcon } from "@/components/technology-icons"
 import { TTRIcon } from "@/components/technology-icons/ttr"
+import { AccentureIcon } from "@/components/technology-icons/accenture"
 
 export const experiences: Array<Experience> = [
+  {
+    id: "accenture",
+    company: "Accenture",
+    icon: AccentureIcon,
+    location: "Ho Chi Minh City, Vietnam",
+    role: "Cloud Engineer",
+    type: "Internship",
+    startDate: "May 2026",
+    endDate: "Present",
+    highlights: [],
+    technologies: [],
+    tags: [],
+  },
   {
     id: "tuturuuu",
     company: "Tuturuuu",
@@ -10,7 +24,7 @@ export const experiences: Array<Experience> = [
     location: "Ho Chi Minh City, Vietnam",
     role: "Software Engineer",
     startDate: "Jul 2025",
-    endDate: "Mar 2026",
+    endDate: "Apr 2026",
     highlights: [
       "Played a key role in migrating external clients' legacy management systems to modern platforms, improving UX, enabling advanced capabilities, and reducing reliance on outdated workflows, contributing to a 40% reduction in downtime and 25% higher user satisfaction.",
       "Contributed to the development and ongoing evolution of the mobile app, bringing core web experiences to mobile, improving cross-platform consistency, and expanding access for mobile-first users, enabling ~90% feature parity with the web platform and supporting a 30% faster release cadence.",

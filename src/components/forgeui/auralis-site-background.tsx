@@ -1,42 +1,42 @@
-import { lazy, Suspense, useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
+import { lazy, Suspense, useEffect, useState } from "react"
+import { cn } from "@/lib/utils"
 
-const Auralis = lazy(() => import("./auralis"));
+const Auralis = lazy(() => import("./auralis"))
 
 /** Matches `use-mobile.ts`: viewport below this width skips WebGL. */
-const MOBILE_MAX_PX = 767;
+const MOBILE_MAX_PX = 767
 
 function useAuralisBackgroundActive() {
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(false)
 
   useEffect(() => {
-    const mqNarrow = window.matchMedia(`(max-width: ${MOBILE_MAX_PX}px)`);
-    const mqReduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const mqNarrow = window.matchMedia(`(max-width: ${MOBILE_MAX_PX}px)`)
+    const mqReduce = window.matchMedia("(prefers-reduced-motion: reduce)")
 
     const update = () => {
       const saveData =
         (navigator as Navigator & { connection?: { saveData?: boolean } })
-          .connection?.saveData === true;
-      setActive(!mqNarrow.matches && !mqReduce.matches && !saveData);
-    };
+          .connection?.saveData === true
+      setActive(!mqNarrow.matches && !mqReduce.matches && !saveData)
+    }
 
-    update();
-    mqNarrow.addEventListener("change", update);
-    mqReduce.addEventListener("change", update);
+    update()
+    mqNarrow.addEventListener("change", update)
+    mqReduce.addEventListener("change", update)
     return () => {
-      mqNarrow.removeEventListener("change", update);
-      mqReduce.removeEventListener("change", update);
-    };
-  }, []);
+      mqNarrow.removeEventListener("change", update)
+      mqReduce.removeEventListener("change", update)
+    }
+  }, [])
 
-  return active;
+  return active
 }
 
 const staticBackdropClass =
-  "pointer-events-none fixed inset-0 z-0 h-[100dvh] min-h-svh w-full bg-[#020617]";
+  "pointer-events-none fixed inset-0 z-0 h-[100dvh] min-h-svh w-full bg-[#020617]"
 
 export function AuralisSiteBackground() {
-  const webGl = useAuralisBackgroundActive();
+  const webGl = useAuralisBackgroundActive()
 
   return (
     <>
@@ -46,11 +46,11 @@ export function AuralisSiteBackground() {
           <Auralis
             height="100dvh"
             className={cn(
-              "pointer-events-none fixed inset-0 z-0 h-dvh! min-h-svh w-full",
+              "pointer-events-none fixed inset-0 z-0 h-dvh! min-h-svh w-full"
             )}
           />
         </Suspense>
       )}
     </>
-  );
+  )
 }

@@ -1,7 +1,7 @@
-"use client";
+"use client"
 
-import { useEffect, useRef } from "react";
-import { cn } from "@/lib/utils";
+import { useEffect, useRef } from "react"
+import { cn } from "@/lib/utils"
 
 const vertexShaderGLSL = `
 attribute vec2 position;
@@ -10,7 +10,7 @@ void main() {
   vUv = position * 0.5 + 0.5;
   gl_Position = vec4(position, 0.0, 1.0);
 }
-`;
+`
 
 const fragmentShaderGLSL = `
 precision highp float;
@@ -71,17 +71,17 @@ void main() {
 
   gl_FragColor = vec4(col, 1.0);
 }
-`;
+`
 
 export interface AuralisProps {
-  colors?: string[];
-  speed?: number;
-  grain?: number;
-  height?: string;
-  className?: string;
+  colors?: Array<string>
+  speed?: number
+  grain?: number
+  height?: string
+  className?: string
 }
 
-const DEFAULT_COLORS = ["#38bdf8", "#60a5fa", "#1e40af"];
+const DEFAULT_COLORS = ["#38bdf8", "#60a5fa", "#1e40af"]
 
 const Auralis = ({
   colors = DEFAULT_COLORS,
@@ -90,91 +90,91 @@ const Auralis = ({
   height = "100vh",
   className,
 }: AuralisProps) => {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const containerRef = useRef<HTMLDivElement | null>(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null)
+  const containerRef = useRef<HTMLDivElement | null>(null)
 
   const hexToRgb = (hex: string): [number, number, number] => {
-    const h = hex.replace("#", "");
+    const h = hex.replace("#", "")
     return [
       parseInt(h.slice(0, 2), 16) / 255,
       parseInt(h.slice(2, 4), 16) / 255,
       parseInt(h.slice(4, 6), 16) / 255,
-    ];
-  };
+    ]
+  }
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const container = containerRef.current;
-    if (!canvas || !container) return;
+    const canvas = canvasRef.current
+    const container = containerRef.current
+    if (!canvas || !container) return
 
-    const gl = canvas.getContext("webgl", { antialias: true });
-    if (!gl) return;
+    const gl = canvas.getContext("webgl", { antialias: true })
+    if (!gl) return
 
     const createShader = (type: number, src: string) => {
-      const s = gl.createShader(type)!;
-      gl.shaderSource(s, src);
-      gl.compileShader(s);
-      return s;
-    };
+      const s = gl.createShader(type)!
+      gl.shaderSource(s, src)
+      gl.compileShader(s)
+      return s
+    }
 
-    const program = gl.createProgram()!;
-    gl.attachShader(program, createShader(gl.VERTEX_SHADER, vertexShaderGLSL));
+    const program = gl.createProgram()
+    gl.attachShader(program, createShader(gl.VERTEX_SHADER, vertexShaderGLSL))
     gl.attachShader(
       program,
-      createShader(gl.FRAGMENT_SHADER, fragmentShaderGLSL),
-    );
-    gl.linkProgram(program);
-    gl.useProgram(program);
+      createShader(gl.FRAGMENT_SHADER, fragmentShaderGLSL)
+    )
+    gl.linkProgram(program)
+    gl.useProgram(program)
 
-    const buffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+    const buffer = gl.createBuffer()
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer)
     gl.bufferData(
       gl.ARRAY_BUFFER,
       new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]),
-      gl.STATIC_DRAW,
-    );
+      gl.STATIC_DRAW
+    )
 
-    const pos = gl.getAttribLocation(program, "position");
-    gl.enableVertexAttribArray(pos);
-    gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+    const pos = gl.getAttribLocation(program, "position")
+    gl.enableVertexAttribArray(pos)
+    gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0)
 
     const locs = {
       res: gl.getUniformLocation(program, "u_resolution"),
       time: gl.getUniformLocation(program, "u_time"),
       grain: gl.getUniformLocation(program, "u_grain"),
       colors: gl.getUniformLocation(program, "u_colors"),
-    };
+    }
 
     const resize = () => {
-      const dpr = Math.min(window.devicePixelRatio, 1.5);
-      canvas.width = container.clientWidth * dpr;
-      canvas.height = container.clientHeight * dpr;
-      gl.viewport(0, 0, canvas.width, canvas.height);
-    };
+      const dpr = Math.min(window.devicePixelRatio, 1.5)
+      canvas.width = container.clientWidth * dpr
+      canvas.height = container.clientHeight * dpr
+      gl.viewport(0, 0, canvas.width, canvas.height)
+    }
 
-    const ro = new ResizeObserver(resize);
-    ro.observe(container);
+    const ro = new ResizeObserver(resize)
+    ro.observe(container)
 
-    let raf: number;
+    let raf: number
     const render = (t: number) => {
-      gl.uniform2f(locs.res, canvas.width, canvas.height);
-      gl.uniform1f(locs.time, t * 0.001 * speed);
-      gl.uniform1f(locs.grain, grain);
+      gl.uniform2f(locs.res, canvas.width, canvas.height)
+      gl.uniform1f(locs.time, t * 0.001 * speed)
+      gl.uniform1f(locs.grain, grain)
 
-      const flat = new Float32Array(colors.slice(0, 3).flatMap(hexToRgb));
-      gl.uniform3fv(locs.colors, flat);
+      const flat = new Float32Array(colors.slice(0, 3).flatMap(hexToRgb))
+      gl.uniform3fv(locs.colors, flat)
 
-      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-      raf = requestAnimationFrame(render);
-    };
+      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
+      raf = requestAnimationFrame(render)
+    }
 
-    raf = requestAnimationFrame(render);
+    raf = requestAnimationFrame(render)
     return () => {
-      ro.disconnect();
-      cancelAnimationFrame(raf);
-      gl.deleteProgram(program);
-    };
-  }, [colors, speed, grain]);
+      ro.disconnect()
+      cancelAnimationFrame(raf)
+      gl.deleteProgram(program)
+    }
+  }, [colors, speed, grain])
 
   return (
     <div
@@ -188,7 +188,7 @@ const Auralis = ({
       />
       <div className="relative z-10 flex h-full w-full flex-col items-center justify-center" />
     </div>
-  );
-};
+  )
+}
 
-export default Auralis;
+export default Auralis
