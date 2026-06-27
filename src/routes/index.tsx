@@ -3,6 +3,7 @@ import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
 import { WorkSections } from "@/components/work-sections"
 import { EducationSection } from "@/components/education"
+import { CertificationSection } from "@/components/certifications"
 import { Footer } from "@/components/footer"
 
 export const Route = createFileRoute("/")({
@@ -17,6 +18,7 @@ function HomePage() {
         <Hero />
         <WorkSections showFilter={false} limit={2} />
         <EducationSection />
+        <CertificationSection />
       </main>
       <Footer />
     </div>

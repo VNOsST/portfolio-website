@@ -37,6 +37,7 @@ import {
 } from "@tabler/icons-react"
 import { SkillsSection } from "./skills"
 import { EducationSection } from "./education"
+import { CertificationSection } from "./certifications"
 import { SpotifyActivity } from "./spotify-activity"
 
 function ArtistChip({ artist }: { artist: Artist }) {
@@ -202,6 +203,7 @@ function ProfessionalSection() {
 
       <SkillsSection compact />
       <EducationSection compact />
+      <CertificationSection compact />
     </div>
   )
 }

@@ -89,4 +89,19 @@ export interface Games {
   icon: ComponentType<{ className?: string; variant?: string }> | null
 }
 
+export interface Certification {
+  name: string
+  issuingOrganization: string
+  issueDate?: {
+    month?: string
+    year?: string | number
+  }
+  expirationDate?: {
+    month?: string
+    year?: string | number
+  }
+  badgeImage: string
+  badgeLink: string
+}
+
 export type TabValue = "professional" | "personal"
