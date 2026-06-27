@@ -92,7 +92,7 @@ export interface Games {
 export interface Certification {
   name: string
   issuingOrganization: string
-  issueDate?: {
+  issueDate: {
     month?: string
     year?: string | number
   }

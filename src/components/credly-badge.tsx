@@ -4,9 +4,11 @@ import type { Certification } from "@/types";
 export function CredlyBadge({
   badgeImage,
   badgeLink,
+  className = "",
 }: {
   badgeImage: Certification["badgeImage"];
   badgeLink: Certification["badgeLink"];
+  className?: string;
 }) {
   return (
     <a
@@ -15,7 +17,9 @@ export function CredlyBadge({
       rel="noopener noreferrer"
       className="group block shrink-0"
     >
-      <div className="flex h-28 w-28 items-center justify-center rounded-2xl p-3 transition-transform duration-200 group-hover:scale-[1.02] sm:h-32 sm:w-32">
+      <div
+        className={`flex h-32 w-32 items-center justify-center rounded-2xl p-3 transition-transform duration-200 group-hover:scale-[1.02] sm:h-28 sm:w-28 ${className}`}
+      >
         <img
           src={buildImageUrl(badgeImage)}
           alt="Certification badge"

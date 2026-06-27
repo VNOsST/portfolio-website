@@ -1,4 +1,4 @@
-import { Card, CardHeader } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { certifications } from "@/data/certifications";
 import { CredlyBadge } from "@/components/credly-badge";
 import { IconCalendar, IconBuilding } from "@tabler/icons-react";
@@ -17,9 +17,9 @@ function CertificationCard({ cert }: { cert: Certification }) {
 
   return (
     <Card className="transition-shadow hover:shadow-lg">
-      <CardHeader className="pb-3">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between sm:gap-5">
-          <div className="flex items-start gap-4 min-w-0">
+      <CardContent>
+        <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:items-start sm:justify-between sm:gap-5 sm:text-left">
+          <div className="flex min-w-0 flex-col items-center gap-3 sm:flex-row sm:items-start sm:gap-4">
             <div className="shrink-0">
               <CredlyBadge
                 badgeImage={cert.badgeImage}
@@ -38,23 +38,15 @@ function CertificationCard({ cert }: { cert: Certification }) {
           </div>
 
           {(issueStr || expiryStr) && (
-            <div className="flex flex-col sm:items-end gap-1 text-sm text-muted-foreground">
-              {issueStr && (
-                <span className="inline-flex items-center gap-1.5">
-                  <IconCalendar className="h-3.5 w-3.5" />
-                  Issued {issueStr}
-                </span>
-              )}
-              {expiryStr && (
-                <span className="inline-flex items-center gap-1.5">
-                  <IconCalendar className="h-3.5 w-3.5" />
-                  Expires {expiryStr}
-                </span>
-              )}
+            <div className="hidden flex-col gap-1 text-sm text-muted-foreground sm:flex ">
+              <span className="inline-flex items-center gap-1.5">
+                <IconCalendar className="h-3.5 w-3.5" />
+                {issueStr} - {expiryStr}
+              </span>
             </div>
           )}
         </div>
-      </CardHeader>
+      </CardContent>
     </Card>
   );
 }
