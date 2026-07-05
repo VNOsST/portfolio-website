@@ -1,19 +1,19 @@
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { certifications } from "@/data/certifications";
-import { CredlyBadge } from "@/components/credly-badge";
-import { IconCalendar, IconBuilding } from "@tabler/icons-react";
-import type { Certification } from "@/types";
+import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import { certifications } from "@/data/certifications"
+import { CredlyBadge } from "@/components/credly-badge"
+import { IconCalendar, IconBuilding } from "@tabler/icons-react"
+import type { Certification } from "@/types"
 
 function formatCertDate(
-  date: Certification["issueDate"] | Certification["expirationDate"],
+  date: Certification["issueDate"] | Certification["expirationDate"]
 ) {
-  if (!date?.month && !date?.year) return null;
-  return [date.month, date.year].filter(Boolean).join(" ");
+  if (!date?.month && !date?.year) return null
+  return [date.month, date.year].filter(Boolean).join(" ")
 }
 
 function CertificationCard({ cert }: { cert: Certification }) {
-  const issueStr = formatCertDate(cert.issueDate);
-  const expiryStr = formatCertDate(cert.expirationDate);
+  const issueStr = formatCertDate(cert.issueDate)
+  const expiryStr = formatCertDate(cert.expirationDate)
 
   return (
     <Card className="transition-shadow hover:shadow-lg">
@@ -48,7 +48,7 @@ function CertificationCard({ cert }: { cert: Certification }) {
         </div>
       </CardContent>
     </Card>
-  );
+  )
 }
 
 export function CertificationSection({ compact }: { compact?: boolean }) {
@@ -69,13 +69,13 @@ export function CertificationSection({ compact }: { compact?: boolean }) {
         ))}
       </div>
     </>
-  );
+  )
 
-  if (compact) return content;
+  if (compact) return content
 
   return (
     <section id="certifications" className="scroll-mt-16 py-12 sm:py-16">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">{content}</div>
     </section>
-  );
+  )
 }

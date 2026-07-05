@@ -1,4 +1,4 @@
-import type { Certification } from "@/types";
+import type { Certification } from "@/types"
 
 export const certifications: Array<Certification> = [
   {
@@ -19,4 +19,4 @@ export const certifications: Array<Certification> = [
     badgeLink:
       "https://www.credly.com/badges/1bf8a8b8-3e45-4122-b502-5c6ff7988d99/public_url",
   },
-];
+]

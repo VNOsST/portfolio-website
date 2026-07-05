@@ -1,14 +1,14 @@
-import { buildImageUrl } from "@/lib/r2";
-import type { Certification } from "@/types";
+import { buildImageUrl } from "@/lib/r2"
+import type { Certification } from "@/types"
 
 export function CredlyBadge({
   badgeImage,
   badgeLink,
   className = "",
 }: {
-  badgeImage: Certification["badgeImage"];
-  badgeLink: Certification["badgeLink"];
-  className?: string;
+  badgeImage: Certification["badgeImage"]
+  badgeLink: Certification["badgeLink"]
+  className?: string
 }) {
   return (
     <a
@@ -28,5 +28,5 @@ export function CredlyBadge({
         />
       </div>
     </a>
-  );
+  )
 }
