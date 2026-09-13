@@ -51,9 +51,10 @@ export function WorkSections({
 
   const filteredExperiences = useMemo(() => {
     if (activeFilters.length === 0) return experiences
-    return experiences.filter((exp) =>
-      matchesAnyTechnologyFilter(exp.technologies, activeFilters)
-    )
+    return experiences.filter((exp) => {
+      const allTech = exp.positions.flatMap((p) => p.technologies)
+      return matchesAnyTechnologyFilter(allTech, activeFilters)
+    })
   }, [activeFilters])
 
   const filteredProjects = useMemo(() => {

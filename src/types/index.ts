@@ -21,18 +21,22 @@ export interface Profile {
   avatar?: string
 }
 
+export interface ExperiencePosition {
+  role: string
+  type?: string
+  startDate: Date
+  endDate: Date | null
+  highlights: Array<string>
+  technologies: Array<TechnologyId>
+  tags?: Array<string>
+}
+
 export interface Experience {
   id: string
   company: string
   icon?: ComponentType<{ className?: string }>
   location: string
-  role: string
-  type?: string
-  startDate: string
-  endDate: string
-  highlights: Array<string>
-  technologies: Array<TechnologyId>
-  tags?: Array<string>
+  positions: Array<ExperiencePosition>
   thumbnail_image?: string
   images?: Array<{ src: string; alt?: string }>
 }

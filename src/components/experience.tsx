@@ -20,9 +20,10 @@ export function ExperienceSection({
     const items =
       activeFilters.length === 0
         ? experiences
-        : experiences.filter((exp) =>
-            matchesAnyTechnologyFilter(exp.technologies, activeFilters)
-          )
+        : experiences.filter((exp) => {
+            const allTech = exp.positions.flatMap((p) => p.technologies)
+            return matchesAnyTechnologyFilter(allTech, activeFilters)
+          })
     return limit ? items.slice(0, limit) : items
   }, [activeFilters, limit])
 
